@@ -11,5 +11,50 @@
     <title>Flashcards</title>
   </head>
   <body>
+    <h1>Pilot Training</h1>
+
+    <!-- Flashcard -->
+    <div id="flashcard">
+      <!-- Flashcard Content -->
+      <p class="topic top_row">Phonetic Alphabet</p>
+      <p class="count top_row">1/26</p>
+      <h2 id="front_side">A</h2>
+      <p id="back_side">Alpha</p>
+      <!-- Flashcard Controls -->
+      <div id="controls">
+        <button>Flip</button>
+        <button>Previous</button>
+        <button>Next</button>
+        <input type="checkbox" id="mark_complete">
+        <label for="mark_complete">Mark Complete</label>
+      </div>
+    </div>
+    <!-- Reset Button -->
+    <button id="reset">Reset</button>
+
+    <!-- Switch Flashcard Topic -->
+    <div id="switch_topic">
+      <div class="topic1">
+        <h3>Phonetic Alphabet</h3>
+      </div>
+      <div class="topic2">
+        <h3>Emergency Procedures Checklists | Memory Items</h3>
+      </div>
+      <div class="create_flashcards">
+        <h3>Create Your Own</h3>
+      </div>
+    </div>
+
+    <!-- Keyboard Shortcuts -->
+    <div id="keyboard_shortcuts">
+      <h3>Keyboard Shortcuts</h3>
+      <ul>
+        <li>Flip: Spacebar</li>
+        <li>Previous: Left Arrow</li>
+        <li>Next: Right Arrow</li>
+        <li>Mark Complete: X</li>
+        <li>Reset: R</li>
+      </ul>
+    </div>
   </body>
 </html>
