@@ -5,3 +5,5 @@
 3. As a user, I should be able to cycle through the flashcards.
 4. As a user, I should be able to check/indicate whether my answer was correct.
 5. As a user, I should be able to reset the flashcards.
+
+See also: https://trello.com/b/582L7t0G/flashcards
