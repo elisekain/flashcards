@@ -34,17 +34,17 @@ var flashcards1 = {
 var flashcards2 = {
   "category": "Cessna 172S Skyhawk",
   "topic": "Emergency Procedures Checklists | Memory Items",
-  "questions": {
-    "q1": [
+  "questions": [
+    [
       "Engine Failure During Takeoff Roll",
       "Throttle - IDLE.",
       "Brakes - APPLY."
     ],
-    "q2": [
+    [
       "Engine Failure Immediately After Takeoff",
       "Airspeed - 70 KIAS (flaps UP). 65 KIAS (flaps DOWN)."
     ],
-    "q3": [
+    [
       "Engine Failure During Flight (Restart Procedures)",
       "Airspeed - 68 KIAS.",
       "Fuel Shutoff Valve - ON (push full in).",
@@ -52,7 +52,7 @@ var flashcards2 = {
       "Auxiliary Fuel Pump Switch - ON.",
       "Mixture - RICH (if restart has not occurred)."
     ],
-    "q4": [
+    [
       "Fire: During Start on Ground",
       "Ignition Switch - START, Continue cranking. If engine fails to start...",
       "Throttle - FULL OPEN.",
@@ -61,45 +61,45 @@ var flashcards2 = {
       "Fuel Shutoff Valve - OFF (Pull Full Out).",
       "Auxiliary Fuel Pump Switch - OFF."
     ],
-    "q5": [
+    [
       "Engine Fire In Flight",
       "Mixture - IDLE CUT OFF.",
       "Fuel Shutoff Valve - Pull Out (OFF).",
       "Auxiliary Fuel Pump Switch - OFF.",
       "Master Switch - OFF."
     ],
-    "q6": [
+    [
       "Electrical Fire in Flight",
       "Master Switch - OFF.",
       "Vents, Cabin Air, Heat - CLOSED.",
       "Fire Extinguisher - ACTIVATE."
     ],
-    "q7": [
+    [
       "Cabin Fire",
       "Master Switch - OFF.",
       "Vents/Cabin Air/Heat - CLOSED.",
       "Fire Extinguisher - ACTIVATE."
     ],
-    "q8": [
+    [
       "Wing Fire",
       "Landing/Taxi Light Switches - OFF.",
       "Navigation Light Switch - OFF.",
       "Strobe Light Switch - OFF.",
       "Pitot Heat Switch - OFF."
     ],
-    "q9": [
+    [
       "Inadvertent Icing Encounter",
       "Turn pitot heat switch ON.",
       "Turn back or change altitude.",
       "Pull cabin heat control full out and open defroster outlets."
     ],
-    "q10": [
+    [
       "Static Source Blockage",
       "Static Pressure Alternate Source View - PULL ON."
     ],
-    "q11": [
+    [
       "Vacuum System Failure",
       "Vacuum Gage - CHECK."
     ]
-  }
+  ]
 }

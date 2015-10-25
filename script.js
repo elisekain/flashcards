@@ -8,11 +8,17 @@ var setNumOfQuestions = function() {
 
 // Set Up Question On Flashcard
 var setQuestions = function() {
-  $("#front_side").text(flashcards1.questions[questionNum][0]);
-  $("#back_side").text(flashcards1.questions[questionNum][1]);
+  $("#back_side").html("");
+  flashcards1.questions[questionNum].forEach(function(e, i) {
+    if (i === 0) {
+      $("#front_side").text(flashcards1.questions[questionNum][0]);
+    } else {
+      $("#back_side").append("<p>" + flashcards1.questions[questionNum][i] + "</p>");
+    }
+  })
 }
 
-// Hide Back Side of Card
+// Hide Back Side of Card; Show Front Side
 var resetCardSide = function() {
   $("#back_side").addClass("hide");
   $("#front_side").removeClass("hide");
@@ -74,9 +80,10 @@ $("body").keypress(function(event) {
   }
 });
 
-$("body").keydown(function(event) {
+$("body").keyup(function(event) {
   // 32 is spacebar
   if (event.which == 32) {
+    event.preventDefault;
     flip();
   // 37 is left arrow
   } else if (event.which == 37) {
