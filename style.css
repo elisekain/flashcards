@@ -2,10 +2,116 @@
   box-sizing: border-box;
 }
 
+/* Main */
+body {
+  background-image: url("img/squared_metal.png");
+  color: #2574A9;
+  text-align: center;
+}
+
+/* Buttons */
+button {
+  background-color: #2574A9;
+  width: 90px;
+  color: #fff;
+  border: none;
+  padding: 2%;
+  margin: 0 1%;
+  border-radius: 5px;
+}
+
+#reset {
+  background-color: #6C7A89;
+}
+
+/* Flashcard */
+#flashcard {
+  width: 50%;
+  min-height: 250px;
+  background-color: #fff;
+  margin: 10px auto;
+  padding: 5% 0 0;
+  border-top: solid 5px #2574A9;
+  border-radius: 3px;
+  position: relative;
+}
+
+.top_row {
+  position: absolute;
+  display: inline-block;
+  color: #6C7A89;
+  margin: 0;
+}
+
+.topic {
+  top: 5px;
+  left: 5px;
+}
+
+.count {
+  top: 5px;
+  right: 5px;
+  background-color: #6C7A89;
+  color: #fff;
+  border-radius: 100%;
+  padding: 2%;
+}
+
+#controls {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+
+/* Keyboard Shortcuts */
+#keyboard_shortcuts {
+  background-color: #2574A9;
+  color: #fff;
+  margin: 0 auto;
+  border-radius: 3px;
+  width: 50%;
+}
+
+#keyboard_shortcuts ul {
+  list-style: none;
+  text-align: left;
+}
+
+#keyboard_shortcuts li {
+  display: inline-block;
+  width: 32%;
+}
+
+/* Topics */
+#switch_topic {
+  width: 50%;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.topic1, .topic2, .create_flashcards {
+  display: inline-block;
+  width: 32.5%;
+  background-color: #6C7A89;
+}
+
+/* Hide Class */
 .hide {
   display: none;
 }
 
-.show {
-  display: initial;
+/* Clearfix */
+/*.clear::before {
+  display: table;
+  content: '';
+  clear: both;
+}*/
+
+/* Flashcard Media Queries */
+@media screen and (max-width: 800px) {
+  #flashcard, #keyboard_shortcuts, #switch_topic {
+    width: 85%;
+  }
 }
+
+/* Make Each Deck Different Color and Correspond to Top Flashcard Border */

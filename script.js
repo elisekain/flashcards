@@ -3,7 +3,7 @@ var questionNum = 0;
 var lastQuestionNum = flashcards1.questions.length - 1;
 
 var setNumOfQuestions = function() {
-  $(".count").text(flashcards1.questions.length + " Flashcards Remaining");
+  $(".count").text(flashcards1.questions.length);
 }
 
 // Set Up Question On Flashcard
