@@ -1,13 +1,15 @@
 /* Google Fonts */
 @import url(https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto+Slab:400,700|Open+Sans:300,400);
 
+@import url(animations.css);
+
 * {
   box-sizing: border-box;
 }
 
 /* Main */
 body {
-  background-image: url("img/squared_metal.png");
+  background-image: url("../img/squared_metal.png");
   font-family: 'Roboto Slab', serif;
   color: #2574A9;
   text-align: center;
@@ -142,61 +144,6 @@ button:focus {
 
 }
 
-@keyframes colorifyRed {
-  from {
-    background-color: #6C7A89;
-  }
-  to {
-    background-color: #F64747;
-  }
-}
-
-@keyframes unColorifyRed {
-  from {
-    background-color: #F64747;
-  }
-  to {
-    background-color: #6C7A89;
-  }
-}
-
-@keyframes colorifyYellow {
-  from {
-    background-color: #6C7A89;
-  }
-  to {
-    background-color: #F39C12;
-  }
-}
-
-@keyframes unColorifyYellow {
-  from {
-    background-color: #F39C12;
-  }
-  to {
-    background-color: #6C7A89;
-  }
-}
-
-@keyframes colorifyGreen {
-  from {
-    background-color: #6C7A89;
-  }
-  to {
-    background-color: #019875;
-  }
-}
-
-@keyframes unColorifyGreen {
-  from {
-    background-color: #019875;
-  }
-  to {
-    background-color: #6C7A89;
-  }
-}
-
-
 /* Keyboard Shortcuts */
 #keyboard_shortcuts {
   background-color: #2574A9;
@@ -267,6 +214,3 @@ button:focus {
     width: 85%;
   }
 }
-
-
-/* Make Each Deck Different Color and Correspond to Top Flashcard Border */
