@@ -111,28 +111,89 @@ button:focus {
 .topic1 {
   left: 0;
   border-top: solid 5px #F64747;
+  animation: unColorifyRed 0.5s 1;
 }
 
 .topic1:hover {
   background-color: #F64747;
+  animation: colorifyRed 0.5s 1;
 }
 
 .topic2 {
   left: 33%;
   border-top: solid 5px #F39C12;
+  animation: unColorifyYellow 0.5s 1;
 }
 
 .topic2:hover {
   background-color: #F39C12;
+  animation: colorifyYellow 0.5s 1;
 }
 
 .create_flashcards {
   left: 66%;
   border-top: solid 5px #019875;
+  animation: unColorifyGreen 0.5s 1;
 }
 
 .create_flashcards:hover {
   background-color: #019875;
+  animation: colorifyGreen 0.5s 1;
+
+}
+
+@keyframes colorifyRed {
+  from {
+    background-color: #6C7A89;
+  }
+  to {
+    background-color: #F64747;
+  }
+}
+
+@keyframes unColorifyRed {
+  from {
+    background-color: #F64747;
+  }
+  to {
+    background-color: #6C7A89;
+  }
+}
+
+@keyframes colorifyYellow {
+  from {
+    background-color: #6C7A89;
+  }
+  to {
+    background-color: #F39C12;
+  }
+}
+
+@keyframes unColorifyYellow {
+  from {
+    background-color: #F39C12;
+  }
+  to {
+    background-color: #6C7A89;
+  }
+}
+
+@keyframes colorifyGreen {
+  from {
+    background-color: #6C7A89;
+  }
+  to {
+    background-color: #019875;
+  }
+}
+
+@keyframes unColorifyGreen {
+  from {
+    background-color: #019875;
+  }
+  to {
+    background-color: #6C7A89;
+  }
 }
 
 
@@ -162,6 +223,7 @@ button:focus {
 
 #keyboard_shortcuts h3 {
   margin: 0;
+  padding-top: 1.5%;
 }
 
 /* Hide Class */
@@ -176,48 +238,35 @@ button:focus {
   clear: both;
 }*/
 
-/* Flashcard Media Queries */
-@media screen and (max-width: 800px) {
+/* Media Queries */
+@media screen and (max-width: 600px) {
+
+  .topic1, .topic2, .create_flashcards {
+  position: static;
+  width: 100%;
+  height: 70px;
+  margin: 0 auto;
+  }
+
+  #switch_topic {
+    height:275px;
+  }
+
+  #keyboard_shortcuts ul {
+    padding-left: 0;
+  }
+
+  #keyboard_shortcuts li {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 1000px) {
   #flashcard, #keyboard_shortcuts, #switch_topic {
     width: 85%;
   }
 }
 
+
 /* Make Each Deck Different Color and Correspond to Top Flashcard Border */
-
-
-/* Experimenting with CSS Flip Animation */
-
-/* Entire container, Keeps Perspective */
-#flashcard {
-	perspective: 1000;
-}
-	/* Flip the pane when hovered */
-	#flashcard:hover .flipper, #flashcard.hover .flipper {
-		transform: rotateX(180deg);
-	}
-
-/* Flip speed goes here */
-.flipper {
-	transition: 0.7s;
-	transform-style: preserve-3d;
-}
-
-/* Hide back of pane during swap */
-#front_side, #back_side {
-  position: absolute;
-  left: 200px;
-	backface-visibility: hidden;
-}
-
-/* Front pane, placed above back */
-#front_side {
-  top: 25px;
-	z-index: 2;
-}
-
-/* Back, initially hidden pane */
-#back_side {
-  bottom: 25px;
-	transform: rotateX(180deg);
-}
