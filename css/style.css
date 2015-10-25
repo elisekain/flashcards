@@ -1,6 +1,6 @@
 /* Google Fonts */
 @import url(https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto+Slab:400,700|Open+Sans:300,400);
-
+/* CSS Animations */
 @import url(animations.css);
 
 * {
@@ -15,6 +15,7 @@ body {
   text-align: center;
 }
 
+/* Header */
 h1 {
   font-family: 'Permanent Marker', cursive;
   font-size: 3.5rem;
@@ -84,7 +85,7 @@ button:focus {
   font-size: 2rem;
 }
 
-/* Topics */
+/* Switch Topic */
 #switch_topic {
   width: 50%;
   margin: 0 auto;
