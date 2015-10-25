@@ -26,6 +26,7 @@ var flashcards1 = {
     ["V", "Victor"],
     ["W", "Whiskey"],
     ["X", "X-ray"],
+    ["Y", "Yankee"],
     ["Z", "Zulu"]
   ]
 }
