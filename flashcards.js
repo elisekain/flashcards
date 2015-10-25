@@ -74,7 +74,7 @@ var flashcards2 = {
       "Fire Extinguisher - ACTIVATE."
     ],
     "q7": [
-      "Cabin Fire"
+      "Cabin Fire",
       "Master Switch - OFF.",
       "Vents/Cabin Air/Heat - CLOSED.",
       "Fire Extinguisher - ACTIVATE."
