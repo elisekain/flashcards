@@ -9,26 +9,35 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="flashcards.js"></script>
     <script src="script.js"></script>
-    <title>Pilot in Training | Flashcards</title>
+    <title>A to Z | Flashcards</title>
   </head>
   <body>
-    <h1>Pilot in Training</h1>
+    <h1>A to Z</h1>
 
     <!-- Flashcard -->
-    <div id="flashcard">
-      <!-- Flashcard Content -->
-      <p class="topic top_row">Phonetic Alphabet</p>
-      <p class="count top_row">1/26</p>
-      <div id="front_side"></div>
-      <div id="back_side" class="hide"></div>
-      <!-- Flashcard Controls -->
-      <div id="controls">
-        <button id="flip">Flip</button>
-        <button id="prev">Previous</button>
-        <button id="next">Next</button>
-        <input type="checkbox" id="mark_complete">
-        <label for="mark_complete">Mark Complete</label>
-      </div>
+    <div id="flashcard" >
+
+        <!-- Flashcard Content -->
+        <p class="topic top_row">Phonetic Alphabet</p>
+        <p class="count top_row"></p>
+        <div class="flipper">
+          <!-- Front Side -->
+          <div id="front_side">
+            <p>Front Side!</p>
+          </div>
+          <!-- Back Side -->
+          <div id="back_side">
+            <p>Back Side!</p>
+          </div>
+        </div>
+        <!-- Flashcard Controls -->
+        <div id="controls">
+          <button id="flip">Flip</button>
+          <button id="prev">Previous</button>
+          <button id="next">Next</button>
+          <input type="checkbox" id="mark_complete">
+          <label for="mark_complete">Mark Complete</label>
+        </div>
     </div>
     <!-- Reset Button -->
     <!-- <button id="reset">Reset</button> -->
@@ -51,12 +60,12 @@
     <div id="keyboard_shortcuts">
       <h3>Keyboard Shortcuts</h3>
       <ul>
-        <li>Flip: <span class="key_short">Spacebar</span></li>
-        <li>Previous: <span class="key_short">Left Arrow</li>
-        <li>Next: <span class="key_short">Right Arrow</li>
-        <li>Mark Complete: <span class="key_short">X</li>
-        <li>Mark Incomplete: <span class="key_short">Z</li>
-        <li>Reset: <span class="key_short">R</span></li>
+        <li>Flip: Spacebar</li>
+        <li>Previous: Left Arrow</li>
+        <li>Next: Right Arrow</li>
+        <li>Mark Complete: X</li>
+        <li>Mark Incomplete: Z</li>
+        <li>Reset: R</li>
       </ul>
     </div>
   </body>
