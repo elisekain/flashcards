@@ -63,11 +63,19 @@ var markComplete = function() {
   setNumOfQuestions();
 }
 
+// Reset
+var resetFlashcards = function() {
+  questionNum = 0;
+  setNumOfQuestions();
+  resetCardSide();
+  setQuestions();
+}
 
 //Event Listeners
 $("#flip").on("click", flip);
 $("#next").on("click", next);
 $("#prev").on("click", prev);
+$("#reset").on("click", resetFlashcards);
 
 //Keyboard Shortcuts
 $("body").keypress(function(event) {
@@ -91,6 +99,9 @@ $("body").keyup(function(event) {
   // 39 is right arrow
   } else if (event.which == 39) {
     next();
+  // 82 is "R"
+  } else if (event.which == 82) {
+    resetFlashcards();
   }
 });
 
@@ -101,3 +112,4 @@ setNumOfQuestions();
 });
 
 // Create flashcard object to contain functions.
+// Spacebar keypress is not working correctly
