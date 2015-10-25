@@ -9,17 +9,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="flashcards.js"></script>
     <script src="script.js"></script>
-    <title>Flashcards</title>
+    <title>Pilot in Training | Flashcards</title>
   </head>
   <body>
-    <h1>Pilot Training</h1>
+    <h1>Pilot in Training</h1>
 
     <!-- Flashcard -->
     <div id="flashcard">
       <!-- Flashcard Content -->
       <p class="topic top_row">Phonetic Alphabet</p>
       <p class="count top_row">1/26</p>
-      <h2 id="front_side"></h2>
+      <div id="front_side"></div>
       <div id="back_side" class="hide"></div>
       <!-- Flashcard Controls -->
       <div id="controls">
@@ -35,6 +35,7 @@
 
     <!-- Switch Flashcard Topic -->
     <div id="switch_topic">
+        <h3>Switch Flashcard Deck</h3>
       <div class="topic1">
         <p>Phonetic Alphabet</p>
       </div>
@@ -50,12 +51,12 @@
     <div id="keyboard_shortcuts">
       <h3>Keyboard Shortcuts</h3>
       <ul>
-        <li>Flip: Spacebar</li>
-        <li>Previous: Left Arrow</li>
-        <li>Next: Right Arrow</li>
-        <li>Mark Complete: X</li>
-        <li>Mark Incomplete: Z</li>
-        <li>Reset: R</li>
+        <li>Flip: <span class="key_short">Spacebar</span></li>
+        <li>Previous: <span class="key_short">Left Arrow</li>
+        <li>Next: <span class="key_short">Right Arrow</li>
+        <li>Mark Complete: <span class="key_short">X</li>
+        <li>Mark Incomplete: <span class="key_short">Z</li>
+        <li>Reset: <span class="key_short">R</span></li>
       </ul>
     </div>
   </body>

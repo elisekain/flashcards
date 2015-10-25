@@ -9,9 +9,10 @@ var setNumOfQuestions = function() {
 // Set Up Question On Flashcard
 var setQuestions = function() {
   $("#back_side").html("");
+  $("#front_side").html("");
   flashcards1.questions[questionNum].forEach(function(e, i) {
     if (i === 0) {
-      $("#front_side").text(flashcards1.questions[questionNum][0]);
+      $("#front_side").append("<p>" + flashcards1.questions[questionNum][0] + "</p>");
     } else {
       $("#back_side").append("<p>" + flashcards1.questions[questionNum][i] + "</p>");
     }
