@@ -27,6 +27,7 @@ button {
   background-color: #2574A9;
   width: 90px;
   color: #fff;
+  font-size: 0.9rem;
   border: none;
   padding: 2%;
   margin: 0 1%;
@@ -43,8 +44,8 @@ button:focus {
 
 /* Flashcard */
 #flashcard {
-  width: 50%;
-  min-height: 250px;
+  width: 60%;
+  min-height: 350px;
   background-color: #fff;
   margin: 10px auto;
   padding: 5% 0 0;
@@ -79,6 +80,10 @@ button:focus {
   position: absolute;
   bottom: 10px;
   width: 100%;
+}
+
+#bottom_row_controls {
+  padding: 2%;
 }
 
 #front_side, #back_side {
@@ -187,7 +192,11 @@ button:focus {
 }*/
 
 /* Media Queries */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 660px) {
+
+  #flashcard {
+    min-height: 500px;
+  }
 
   .topic1, .topic2, .create_flashcards {
   position: static;
@@ -207,6 +216,17 @@ button:focus {
   #keyboard_shortcuts li {
     width: 100%;
     text-align: center;
+  }
+
+  #back_side {
+    margin-top: 20px;
+  }
+
+  button {
+    display: inline-block;
+    width: 25%;
+    padding: 2%;
+    margin: 2% auto;
   }
 }
 
