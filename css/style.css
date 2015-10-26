@@ -104,6 +104,13 @@ label {
 
 #front_side, #back_side {
   font-size: 3rem;
+  width: 100%;
+  position: absolute;
+}
+
+#back_side {
+  color: #6C7A89;
+  font-size:1.5rem;
 }
 
 i {

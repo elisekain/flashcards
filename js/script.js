@@ -6,10 +6,16 @@ $(document).ready(function() {
 
   // Set Up Question On Flashcard
   var setQuestions = function() {
+    // Update Cards Left in Stack
     lastQuestionIndex = currentQuestions.length - 1;
     $(".count").text(currentQuestions.length);
+
+    // Clear Previous Card Text and Styling
     $("#back_side").html("");
     $("#front_side").html("");
+    $("#back_side").css("font-size", "1.5rem");
+
+    // Append text to front and back sides.
     currentQuestions[questionIndex].forEach(function(e, i) {
       if (i === 0) {
         $("#front_side").append("<p>" + currentQuestions[questionIndex][i] + "</p>");
@@ -17,8 +23,9 @@ $(document).ready(function() {
         $("#back_side").append("<p>" + currentQuestions[questionIndex][i] + "</p>");
       }
 
-      if (i >= 2) {
-        $("#back_side p").css("font-size", "1rem");
+      // Reduce font size if more than 2 items on back
+      if (i > 2) {
+        $("#back_side").css("font-size", "1rem");
       }
     })
   }
@@ -133,3 +140,5 @@ $(document).ready(function() {
 });
 
 // Create flashcard object to contain functions.
+// Spacebar is still a problem...but only sometimes
+//

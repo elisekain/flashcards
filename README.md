@@ -1,3 +1,22 @@
+### Alpha - Zulu
+
+See:{URL}
+
+### Technologies Used
+
+HTML
+CSS
+JavaScript
+jQuery
+Git / GitHub
+
+### Other Resources Used
+
+Font Awesome
+normalize.css
+
+### Installation Instructions
+
 ### User Stories
 
 1. As a user, I should be able to view one side of a flashcard to read the "question".
@@ -7,3 +26,7 @@
 5. As a user, I should be able to reset the flashcards so I can start over.
 
 See also: https://trello.com/b/582L7t0G/flashcards
+
+### Approach Taken
+
+### Unsolved Problems
