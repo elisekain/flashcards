@@ -100,29 +100,29 @@ $(document).ready(function() {
   $(".topic1").on("click", selectTopic1);
 
   //Keyboard Shortcuts
-  $("body").keypress(function(event) {
+  $("body").keypress(function(e) {
     // 120 is "X"
-    if (event.which == 120) {
+    if (e.which == 120) {
       $("#mark_complete").prop("checked", true);
     // 122 is "Z"
-    } else if (event.which == 122) {
+    } else if (e.which == 122) {
       $("#mark_complete").prop("checked", false);
     }
   });
 
-  $("body").keyup(function(event) {
+  $("body").keyup(function(e) {
     // 32 is spacebar
-    if (event.which == 32) {
-      event.preventDefault;
+    if (e.which == 32) {
+      e.preventDefault();
       flip();
     // 37 is left arrow
-    } else if (event.which == 37) {
+    } else if (e.which == 37) {
       prev();
     // 39 is right arrow
-    } else if (event.which == 39) {
+    } else if (e.which == 39) {
       next();
     // 82 is "R"
-    } else if (event.which == 82) {
+    } else if (e.which == 82) {
       resetFlashcards();
     }
   });
