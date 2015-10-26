@@ -4,7 +4,7 @@ var questionNum = 0;
 var lastQuestionNum = currentQuestions.length - 1;
 var userSelectedQuestions = flashcards1.questions;
 
-var setNumOfQuestions = function() {
+var setQuestionDetails = function() {
   $(".count").text(currentQuestions.length);
 }
 
@@ -67,7 +67,7 @@ var markComplete = function() {
     currentQuestions.splice(questionNum, 1);
     $("#mark_complete").prop("checked", false);
   }
-  setNumOfQuestions();
+  setQuestionDetails();
 }
 
 // Reset
@@ -75,13 +75,20 @@ var resetFlashcards = function() {
   currentQuestions = userSelectedQuestions;
   questionNum = 0;
   lastQuestionNum = currentQuestions.length - 1;
-  setNumOfQuestions();
+  setQuestionDetails();
   resetCardSide();
   setQuestions();
 }
 
 var selectTopic2 = function() {
   userSelectedQuestions = flashcards2.questions;
+  $(".topic").text(flashcards2.topic);
+  resetFlashcards();
+}
+
+var selectTopic1 = function() {
+  userSelectedQuestions = flashcards1.questions;
+  $(".topic").text(flashcards1.topic);
   resetFlashcards();
 }
 //Event Listeners
@@ -89,7 +96,8 @@ $("#flip").on("click", flip);
 $("#next").on("click", next);
 $("#prev").on("click", prev);
 $("#reset").on("click", resetFlashcards);
-$(".topic2").on("click", selectTopic2)
+$(".topic2").on("click", selectTopic2);
+$(".topic1").on("click", selectTopic1);
 
 //Keyboard Shortcuts
 $("body").keypress(function(event) {
@@ -121,7 +129,7 @@ $("body").keyup(function(event) {
 
 //Set Up Flashcards
 setQuestions();
-setNumOfQuestions();
+setQuestionDetails();
 
 });
 
