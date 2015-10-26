@@ -60,7 +60,7 @@ label {
   min-height: 350px;
   background-color: #fff;
   margin: 10px auto;
-  padding: 5% 0 0;
+  padding: 5% 3% 0 3%;
   border-top: solid 5px #F64747;
   border-radius: 3px;
   position: relative;
@@ -104,13 +104,18 @@ label {
 
 #front_side, #back_side {
   font-size: 3rem;
-  width: 100%;
+  width: 87%;
   position: absolute;
+  margin-top: 1%;
 }
 
 #back_side {
   color: #6C7A89;
   font-size:1.5rem;
+}
+
+#front_side p, #back_side p {
+  margin-top: 1%;
 }
 
 i {

@@ -4,16 +4,16 @@ See:{URL}
 
 ### Technologies Used
 
-HTML
-CSS
-JavaScript
-jQuery
-Git / GitHub
+- HTML
+- CSS
+- JavaScript
+- jQuery
+- Git / GitHub
 
 ### Other Resources Used
 
-Font Awesome
-normalize.css
+- Font Awesome
+- normalize.css
 
 ### Installation Instructions
 
