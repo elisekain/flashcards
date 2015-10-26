@@ -1,0 +1,43 @@
+#cyo {
+  width: 50%;
+  background-color: #019875;
+  color: #fff;
+  padding: 2%;
+  margin: 2% auto;
+  border-radius: 5px;
+}
+
+.card_entries {
+  padding: 1%;
+  font-size: 0.9rem;
+}
+
+.card_entries input, #cyo_submit{
+  color: #6C7A89;
+}
+
+.card_entries input {
+  width: 200px;
+}
+
+.card_entries label {
+  padding-right: 2%;
+}
+
+#cyo_submit {
+  background-color: #fff;
+  border: none;
+  width: 150px;
+  border-radius: 3px;
+  padding: 2%;
+  margin-top: 3%;
+}
+
+legend {
+  padding: 2%;
+  text-align: left;
+}
+
+fieldset {
+  border-color: #fff;
+}

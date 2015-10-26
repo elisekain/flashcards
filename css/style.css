@@ -2,6 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto+Slab:400,700|Open+Sans:300,400);
 /* CSS Animations */
 @import url(animations.css);
+@import url(cyo.css);
 
 * {
   box-sizing: border-box;
@@ -261,11 +262,11 @@ i {
 }
 
 @media screen and (max-width: 1000px) {
-  #flashcard, #keyboard_shortcuts, #switch_topic {
+  #flashcard, #keyboard_shortcuts, #switch_topic, #cyo {
     width: 85%;
   }
 
-  button, label {
+  button, #controls label {
     font-size: 0.8rem;
   }
 }

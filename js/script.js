@@ -106,6 +106,9 @@ $(document).ready(function() {
   $("#reset").on("click", resetFlashcards);
   $(".topic2").on("click", selectTopic2);
   $(".topic1").on("click", selectTopic1);
+  $(".create_flashcards").on("click", function() {
+    $("#cyo").slideDown().toggleClass("hide");
+  })
 
   //Keyboard Shortcuts
   $("body").keypress(function(e) {
