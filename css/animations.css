@@ -64,15 +64,15 @@
     }
 
     25% {
-      transform: translate (315px, 40px) rotate(160deg);
+      transform: translate (315px, -10px) rotate(160deg);
     }
 
   	40% {
-      transform: translate(300px, 100px) rotate(200deg);
+      transform: translate(300px, -30px) rotate(200deg);
   	}
 
   	60% {
-      transform: translate(-200px, 150px) rotate(260deg);
+      transform: translate(-200px, -20px) rotate(260deg);
   	}
 
     80% {

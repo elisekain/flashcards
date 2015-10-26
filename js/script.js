@@ -1,3 +1,5 @@
+"use strict"
+
 $(document).ready(function() {
   var userSelectedQuestions = flashcards1.questions.slice(0);
   var currentQuestions = userSelectedQuestions.slice(0);
@@ -72,6 +74,7 @@ $(document).ready(function() {
 
   // Flip Flashcard
   var flip = function() {
+    console.log("flipped!");
     $("#back_side").toggleClass("hide");
     $("#front_side").toggleClass("hide");
   }
@@ -106,12 +109,13 @@ $(document).ready(function() {
   $("#reset").on("click", resetFlashcards);
   $(".topic2").on("click", selectTopic2);
   $(".topic1").on("click", selectTopic1);
+
   $(".create_flashcards").on("click", function() {
     $("#cyo").slideDown().toggleClass("hide");
-  })
+  });
   $(".fa-plane").on("click", function() {
     $(this).toggleClass("fly");
-  })
+  });
 
   //Keyboard Shortcuts
   $("body").keypress(function(e) {

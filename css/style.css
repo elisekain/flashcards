@@ -69,7 +69,6 @@ label {
   border-top: solid 5px #F64747;
   border-radius: 3px;
   position: relative;
-  z-index: -1;
 }
 
 .top_row {
