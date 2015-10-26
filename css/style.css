@@ -22,15 +22,19 @@ h1 {
   margin: 10px auto;
 }
 
+.fa-plane {
+  transform: rotate(45deg);
+}
+
 /* Buttons */
 button {
   background-color: #2574A9;
-  width: 90px;
+  width: 105px;
   color: #fff;
   font-size: 0.9rem;
   border: none;
-  padding: 2%;
-  margin: 0 1%;
+  padding: 1.5%;
+  margin: 0 0.5%;
   border-radius: 5px;
 }
 
@@ -40,6 +44,14 @@ button:focus {
 
 #reset {
   background-color: #6C7A89;
+}
+
+#mark_complete {
+  margin-left: 6%;
+}
+
+label {
+  white-space: nowrap;
 }
 
 /* Flashcard */
@@ -82,12 +94,18 @@ button:focus {
   width: 100%;
 }
 
-#bottom_row_controls {
-  padding: 2%;
+.mark_complete_container {
+  display: inline-block;
+  width: 150px;
+  padding: 1% 0;
 }
 
 #front_side, #back_side {
-  font-size: 2rem;
+  font-size: 3rem;
+}
+
+i {
+  padding: 1%;
 }
 
 /* Switch Topic */
@@ -147,7 +165,6 @@ button:focus {
 .create_flashcards:hover {
   background-color: #019875;
   animation: colorifyGreen 0.5s 1;
-
 }
 
 /* Keyboard Shortcuts */
@@ -171,7 +188,6 @@ button:focus {
   padding: 0.5%;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
-
 }
 
 #keyboard_shortcuts h3 {
@@ -198,6 +214,10 @@ button:focus {
     min-height: 500px;
   }
 
+  #back_side {
+    margin-top: 20px;
+  }
+
   .topic1, .topic2, .create_flashcards {
   position: static;
   width: 100%;
@@ -218,10 +238,6 @@ button:focus {
     text-align: center;
   }
 
-  #back_side {
-    margin-top: 20px;
-  }
-
   button {
     display: inline-block;
     width: 25%;
@@ -233,5 +249,9 @@ button:focus {
 @media screen and (max-width: 1000px) {
   #flashcard, #keyboard_shortcuts, #switch_topic {
     width: 85%;
+  }
+
+  button, label {
+    font-size: 0.8rem;
   }
 }

@@ -33,7 +33,7 @@ var flashcards1 = {
 
 var flashcards2 = {
   "category": "Cessna 172S Skyhawk",
-  "topic": "Emergency Procedures Checklists (Memory Items)",
+  "topic": "Emergency Procedures Checklists",
   "questions": [
     [
       "Engine Failure During Takeoff Roll",

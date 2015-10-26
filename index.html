@@ -4,46 +4,48 @@
     <meta charset="utf-8">
     <!-- CSS Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
     <!-- JavaScript Files -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/flashcards.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
-    <title>A to Z | Flashcards</title>
+    <title>Alpha to Zulu | Flashcards</title>
   </head>
   <body>
-    <h1>A to Z</h1>
+    <h1>Alpha <i class="fa fa-plane"></i> Zulu</h1>
 
     <!-- Flashcard -->
     <div id="flashcard" >
 
-        <!-- Flashcard Content -->
-        <p class="topic top_row">Phonetic Alphabet</p>
-        <p class="count top_row">26</p>
-          <!-- Front Side -->
-          <div id="front_side" class="hide">
-            <p>Front Side!</p>
-          </div>
-          <!-- Back Side -->
-          <div id="back_side">
-            <p>Back Side!</p>
-          </div>
-        <!-- Flashcard Controls -->
-        <div id="controls">
-          <button id="flip">Flip</button>
-          <button id="prev">Previous</button>
-          <button id="next">Next</button>
-          <button id="reset">Reset</button>
+      <!-- Flashcard Content -->
+      <p class="topic top_row">Phonetic Alphabet</p>
+      <p class="count top_row">26</p>
+      <!-- Front Side -->
+      <div id="front_side">
+        <p>Front Side!</p>
+      </div>
+      <!-- Back Side -->
+      <div id="back_side" class="hide">
+        <p>Back Side!</p>
+      </div>
+      <!-- Flashcard Controls -->
+      <div id="controls">
+        <button id="flip"><i class="fa fa-repeat"></i> Flip</button>
+        <button id="prev"><i class="fa fa-long-arrow-left"></i> Previous</button>
+        <button id="next">Next <i class="fa fa-long-arrow-right"></i></button>
+        <button id="reset">Reset</button>
+        <div class="mark_complete_container">
           <input type="checkbox" id="mark_complete">
           <label for="mark_complete">Mark Complete</label>
         </div>
-    </div>
-    <!-- Reset Button -->
+      </div>
 
+    </div>
 
     <!-- Switch Flashcard Topic -->
     <div id="switch_topic">
-        <h3>Switch Flashcard Deck</h3>
+      <h3>Switch Flashcard Deck</h3>
       <div class="topic1">
         <p>Phonetic Alphabet</p>
       </div>
@@ -59,9 +61,9 @@
     <div id="keyboard_shortcuts">
       <h3>Keyboard Shortcuts</h3>
       <ul>
-        <li>Flip: Spacebar</li>
         <li>Previous: Left Arrow</li>
         <li>Next: Right Arrow</li>
+        <li>Flip: Spacebar</li>
         <li>Mark Complete: X</li>
         <li>Mark Incomplete: Z</li>
         <li>Reset: R</li>

@@ -1,20 +1,26 @@
 $(document).ready(function() {
+var currentQuestions = flashcards1.questions;
 var questionNum = 0;
-var lastQuestionNum = flashcards1.questions.length - 1;
+var lastQuestionNum = currentQuestions.length - 1;
+var userSelectedQuestions = flashcards1.questions;
 
 var setNumOfQuestions = function() {
-  $(".count").text(flashcards1.questions.length);
+  $(".count").text(currentQuestions.length);
 }
 
 // Set Up Question On Flashcard
 var setQuestions = function() {
   $("#back_side").html("");
   $("#front_side").html("");
-  flashcards1.questions[questionNum].forEach(function(e, i) {
+  currentQuestions[questionNum].forEach(function(e, i) {
     if (i === 0) {
-      $("#front_side").append("<p>" + flashcards1.questions[questionNum][0] + "</p>");
+      $("#front_side").append("<p>" + currentQuestions[questionNum][0] + "</p>");
     } else {
-      $("#back_side").append("<p>" + flashcards1.questions[questionNum][i] + "</p>");
+      $("#back_side").append("<p>" + currentQuestions[questionNum][i] + "</p>");
+    }
+
+    if (i >= 2) {
+      $("#back_side p").css("font-size", "1rem");
     }
   })
 }
@@ -58,7 +64,7 @@ var flip = function() {
 // Remove Question if "Mark Complete" Box is checked
 var markComplete = function() {
   if ($("input:checked").length) {
-    flashcards1.questions.splice(questionNum, 1);
+    currentQuestions.splice(questionNum, 1);
     $("#mark_complete").prop("checked", false);
   }
   setNumOfQuestions();
@@ -66,17 +72,24 @@ var markComplete = function() {
 
 // Reset
 var resetFlashcards = function() {
+  currentQuestions = userSelectedQuestions;
   questionNum = 0;
+  lastQuestionNum = currentQuestions.length - 1;
   setNumOfQuestions();
   resetCardSide();
   setQuestions();
 }
 
+var selectTopic2 = function() {
+  userSelectedQuestions = flashcards2.questions;
+  resetFlashcards();
+}
 //Event Listeners
 $("#flip").on("click", flip);
 $("#next").on("click", next);
 $("#prev").on("click", prev);
 $("#reset").on("click", resetFlashcards);
+$(".topic2").on("click", selectTopic2)
 
 //Keyboard Shortcuts
 $("body").keypress(function(event) {
