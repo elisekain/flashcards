@@ -109,6 +109,7 @@ $(document).ready(function() {
   });
 
   $(".create_flashcards").on("click", function() {
+    addMoreCYOCards();
     $("#cyo").slideDown().toggleClass("hide");
   });
 
@@ -116,6 +117,11 @@ $(document).ready(function() {
     e.preventDefault();
     createYourOwn(); // See cyo.js for this function
     selectTopic(flashcards_cyo, "#019875");
+  });
+
+  $(".addMore").on("click", function(e) {
+    e.preventDefault();
+    addMoreCYOCards();
   });
 
   $(".fa-plane").on("click", function() {
