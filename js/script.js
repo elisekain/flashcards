@@ -87,17 +87,10 @@ $(document).ready(function() {
     resetCardSide();
   }
 
-  var selectTopic2 = function() {
-    userSelectedQuestions = flashcards2.questions.slice(0);
-    $(".topic").text(flashcards2.topic);
-    $("#flashcard").css("border-top-color", "#F39C12");
-    resetFlashcards();
-  }
-
-  var selectTopic1 = function() {
-    userSelectedQuestions = flashcards1.questions.slice(0);
-    $(".topic").text(flashcards1.topic);
-    $("#flashcard").css("border-top-color", "#F64747");
+  var selectTopic = function(topicName, topBorderColor) {
+    userSelectedQuestions = topicName.questions.slice(0);
+    $(".topic").text(topicName.topic);
+    $("#flashcard").css("border-top-color", topBorderColor);
     resetFlashcards();
   }
 
@@ -106,8 +99,14 @@ $(document).ready(function() {
   $("#next").on("click", next);
   $("#prev").on("click", prev);
   $("#reset").on("click", resetFlashcards);
-  $(".topic2").on("click", selectTopic2);
-  $(".topic1").on("click", selectTopic1);
+
+  $(".topic1").on("click", function() {
+    selectTopic(flashcards1, "#F64747");
+  });
+
+  $(".topic2").on("click", function() {
+    selectTopic(flashcards2, "#F39C12");
+  });
 
   $(".create_flashcards").on("click", function() {
     $("#cyo").slideDown().toggleClass("hide");
@@ -115,7 +114,8 @@ $(document).ready(function() {
 
   $("#cyo_submit").on("click", function(e) {
     e.preventDefault();
-    createYourOwn();
+    createYourOwn(); // See cyo.js for this function
+    selectTopic(flashcards_cyo, "#019875");
   });
 
   $(".fa-plane").on("click", function() {
@@ -156,4 +156,6 @@ $(document).ready(function() {
 
 // Create flashcard object to contain functions.
 // Spacebar is still a problem...but only sometimes
-//
+// Make function for select topics
+// If cyo cards are empty, don't create the array
+// Add option for more cards
