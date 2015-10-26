@@ -41,3 +41,11 @@ legend {
 fieldset {
   border-color: #fff;
 }
+
+#create_title {
+  width: 126px;
+}
+
+#cyo_topic_title {
+  width: 70px;
+}
