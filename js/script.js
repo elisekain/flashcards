@@ -1,8 +1,8 @@
 $(document).ready(function() {
-  var currentQuestions = flashcards1.questions;
+  var userSelectedQuestions = flashcards1.questions.slice(0);
+  var currentQuestions = userSelectedQuestions.slice(0);
   var questionIndex = 0;
   var lastQuestionIndex = currentQuestions.length - 1;
-  var userSelectedQuestions = flashcards1.questions;
 
   // Set Up Question On Flashcard
   var setQuestions = function() {
@@ -71,7 +71,7 @@ $(document).ready(function() {
 
   // Reset
   var resetFlashcards = function() {
-    currentQuestions = userSelectedQuestions;
+    currentQuestions = userSelectedQuestions.slice(0);
     questionIndex = 0;
     lastQuestionIndex = currentQuestions.length - 1;
     setQuestions();
@@ -79,18 +79,19 @@ $(document).ready(function() {
   }
 
   var selectTopic2 = function() {
-    userSelectedQuestions = flashcards2.questions;
+    userSelectedQuestions = flashcards2.questions.slice(0);
     $(".topic").text(flashcards2.topic);
     $("#flashcard").css("border-top-color", "#F39C12");
     resetFlashcards();
   }
 
   var selectTopic1 = function() {
-    userSelectedQuestions = flashcards1.questions;
+    userSelectedQuestions = flashcards1.questions.slice(0);
     $(".topic").text(flashcards1.topic);
     $("#flashcard").css("border-top-color", "#F64747");
     resetFlashcards();
   }
+
   //Event Listeners
   $("#flip").on("click", flip);
   $("#next").on("click", next);
@@ -132,4 +133,3 @@ $(document).ready(function() {
 });
 
 // Create flashcard object to contain functions.
-// Spacebar keypress is not working correctly
