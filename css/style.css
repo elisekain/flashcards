@@ -27,6 +27,10 @@ h1 {
   transform: rotate(45deg);
 }
 
+.fly {
+  animation: fly 5s ease-in-out 1;
+}
+
 /* Buttons */
 button {
   background-color: #2574A9;
@@ -65,7 +69,7 @@ label {
   border-top: solid 5px #F64747;
   border-radius: 3px;
   position: relative;
-  transition: transform 2s;
+  z-index: -1;
 }
 
 .top_row {
@@ -94,7 +98,7 @@ label {
 #controls {
   position: absolute;
   bottom: 10px;
-  width: 100%;
+  width: 87%;
 }
 
 .mark_complete_container {

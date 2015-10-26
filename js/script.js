@@ -109,6 +109,9 @@ $(document).ready(function() {
   $(".create_flashcards").on("click", function() {
     $("#cyo").slideDown().toggleClass("hide");
   })
+  $(".fa-plane").on("click", function() {
+    $(this).toggleClass("fly");
+  })
 
   //Keyboard Shortcuts
   $("body").keypress(function(e) {
