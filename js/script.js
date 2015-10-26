@@ -1,5 +1,4 @@
 "use strict"
-
 $(document).ready(function() {
   var userSelectedQuestions = flashcards1.questions.slice(0);
   var currentQuestions = userSelectedQuestions.slice(0);
@@ -113,6 +112,12 @@ $(document).ready(function() {
   $(".create_flashcards").on("click", function() {
     $("#cyo").slideDown().toggleClass("hide");
   });
+
+  $("#cyo_submit").on("click", function(e) {
+    e.preventDefault();
+    createYourOwn();
+  });
+
   $(".fa-plane").on("click", function() {
     $(this).toggleClass("fly");
   });
