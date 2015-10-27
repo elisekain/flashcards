@@ -150,39 +150,34 @@ i {
   border-radius: 3px;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: background-color 0.5s ease-in;
 }
 
 .topic1 {
   left: 0;
   border-top: solid 5px #F64747;
-  animation: unColorifyRed 0.5s 1;
 }
 
 .topic1:hover {
   background-color: #F64747;
-  animation: colorifyRed 0.5s 1;
 }
 
 .topic2 {
   left: 33%;
   border-top: solid 5px #F39C12;
-  animation: unColorifyYellow 0.5s 1;
 }
 
 .topic2:hover {
   background-color: #F39C12;
-  animation: colorifyYellow 0.5s 1;
 }
 
 .create_flashcards {
   left: 66%;
   border-top: solid 5px #019875;
-  animation: unColorifyGreen 0.5s 1;
 }
 
 .create_flashcards:hover {
   background-color: #019875;
-  animation: colorifyGreen 0.5s 1;
 }
 
 /* Keyboard Shortcuts */
@@ -210,20 +205,14 @@ i {
 
 #keyboard_shortcuts h3 {
   margin: 0;
-  padding-top: 1.5%;
+  padding: 1.5% 0;
+  border-bottom: 1px solid #fff;
 }
 
 /* Hide Class */
 .hide {
   display: none;
 }
-
-/* Clearfix */
-/*.clear::before {
-  display: table;
-  content: '';
-  clear: both;
-}*/
 
 /* Media Queries */
 @media screen and (max-width: 660px) {
@@ -259,9 +248,14 @@ i {
   button {
     display: inline-block;
     width: 25%;
-    padding: 2%;
-    margin: 2% auto;
+    padding: 2.5%;
+    margin: 2%;
   }
+
+  i::before {
+    display: none;
+  }
+
 }
 
 @media screen and (max-width: 1000px) {
