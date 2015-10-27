@@ -191,6 +191,9 @@ $(document).ready(function() {
     // 82 is "R"
     } else if (e.which == 82 && e.target == document.body) {
       resetFlashcards();
+    // 81 is "Q"
+    } else if (e.which == 81 && e.target == document.body) {
+      mixupCards();
     }
   });
 

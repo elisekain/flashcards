@@ -210,6 +210,10 @@ i {
   border-bottom: 1px solid #fff;
 }
 
+#keyboard_shortcuts li:last-child {
+  width: 96%;
+}
+
 /* Hide Class */
 .hide {
   display: none;
