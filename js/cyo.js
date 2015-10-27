@@ -16,8 +16,10 @@ var createYourOwn = function() {
 }
 
 var addMoreCYOCards = function() {
-  for (var i = 0; i < 5; i++) {
-    $(".cyo_cards").append("<div class='card_entries'><label for='front" + cardNumber + "'>Card &#35;" + cardNumber + "</label><input type='text' class='front' name='front1" + cardNumber + "' placeholder='Front'><input type='text' class='back' name='back" + cardNumber + "' placeholder='Back'></div>");
-    cardNumber++;
+  if (cardNumber < 50) {
+    for (var i = 0; i < 5; i++) {
+      $(".cyo_cards").append("<div class='card_entries'><label for='front" + cardNumber + "'>Card &#35;" + cardNumber + "</label><input type='text' class='front' name='front1" + cardNumber + "' placeholder='Front'><input type='text' class='back' name='back" + cardNumber + "' placeholder='Back'></div>");
+      cardNumber++;
+    }
   }
 }
