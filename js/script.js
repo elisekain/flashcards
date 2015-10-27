@@ -172,8 +172,15 @@ $(document).ready(function() {
   });
 
   // Make the plane fly!
-  $(".fa-plane").on("click", function() {
-    $(this).toggleClass("fly");
+  var plane = $(".fa-plane");
+
+  plane.on("click", function(e) {
+    e.preventDefault;
+    plane.addClass("fly");
+  });
+
+  plane.on("mouseover", function(e) {
+    plane.removeClass("fly");
   });
 
   //Keyboard Shortcuts
@@ -208,6 +215,7 @@ $(document).ready(function() {
 
   //Set Up Flashcards
   flashcard.setQuestions();
+
 });
 
 // Create flashcard object to contain functions.
