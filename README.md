@@ -1,6 +1,11 @@
 ### Alpha - Zulu
 
-Alpha - Zulu is a flashcard application to help aspiring private pilots memorize important information like the phonetic alphabet and emergency procedure checklists. It allows the user to flip to the opposite side of the card, cycle forwards and backwards through the stack and  mark a flashcard complete to remove it from the flashcard stack. The user can also create a customized stack of up to 50 flashcards.   
+Alpha - Zulu is a flashcard application to help aspiring private pilots memorize important information like the phonetic alphabet and emergency procedure checklists. It allows the user to:
+- flip to the opposite side of the card
+- cycle forwards and backwards through the stack
+- mark a flashcard complete and remove it from the stack.
+
+The user can also create a customized stack of up to 50 flashcards.   
 
 See: http://elisekain.github.io/flashcards/
 
