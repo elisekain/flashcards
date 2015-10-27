@@ -5,16 +5,30 @@ $(document).ready(function() {
   var questionIndex = 0;
   var lastQuestionIndex = currentQuestions.length - 1;
 
-  // Set Up Question On Flashcard
-  var setQuestions = function() {
-    // Update Cards Left in Stack
-    lastQuestionIndex = currentQuestions.length - 1;
-    $(".count").text(currentQuestions.length);
-
+  var clearPrevCard = function() {
     // Clear Previous Card Text and Styling
     $("#back_side").html("");
     $("#front_side").html("");
     $("#back_side").css("font-size", "1.5rem");
+  }
+
+  var updateCardsLeft = function() {
+    // Update Cards Left in Stack
+    lastQuestionIndex = currentQuestions.length - 1;
+    $(".count").text(currentQuestions.length);
+  }
+
+  // Hide Back Side of Card; Show Front Side
+  var resetCardSide = function() {
+    $("#back_side").addClass("hide");
+    $("#front_side").removeClass("hide");
+  }
+
+  // Set Up Question On Flashcard
+  var setQuestions = function() {
+    updateCardsLeft();
+    clearPrevCard();
+    resetCardSide();
 
     // Append text to front and back sides.
     currentQuestions[questionIndex].forEach(function(e, i) {
@@ -40,12 +54,6 @@ $(document).ready(function() {
     }
   }
 
-  // Hide Back Side of Card; Show Front Side
-  var resetCardSide = function() {
-    $("#back_side").addClass("hide");
-    $("#front_side").removeClass("hide");
-  }
-
   // Go to Next Flashcard
   var next = function() {
     if (!markComplete()) {
@@ -55,7 +63,6 @@ $(document).ready(function() {
         questionIndex++;
       }
     }
-    resetCardSide();
     setQuestions();
   }
 
@@ -67,13 +74,11 @@ $(document).ready(function() {
     } else {
       questionIndex--;
     }
-    resetCardSide();
     setQuestions();
   }
 
   // Flip Flashcard
   var flip = function() {
-    console.log("flipped!");
     $("#back_side").toggleClass("hide");
     $("#front_side").toggleClass("hide");
   }
@@ -84,7 +89,6 @@ $(document).ready(function() {
     questionIndex = 0;
     lastQuestionIndex = currentQuestions.length - 1;
     setQuestions();
-    resetCardSide();
   }
 
   var selectTopic = function(topicName, topBorderColor) {
@@ -100,19 +104,23 @@ $(document).ready(function() {
   $("#prev").on("click", prev);
   $("#reset").on("click", resetFlashcards);
 
+  //Switch to Topic 1
   $(".topic1").on("click", function() {
     selectTopic(flashcards1, "#F64747");
   });
 
+  //Switch to Topic 2
   $(".topic2").on("click", function() {
     selectTopic(flashcards2, "#F39C12");
   });
 
+  // Show CYO Div
   $(".create_flashcards").on("click", function() {
     addMoreCYOCards();
     $("#cyo").slideDown().toggleClass("hide");
   });
 
+  // Submit & Create CYO Cards
   $("#cyo_submit").on("click", function(e) {
     e.preventDefault();
     createYourOwn(); // See cyo.js for this function
@@ -123,11 +131,13 @@ $(document).ready(function() {
     });
   });
 
+  // Add more CYO card inputs
   $(".addMore").on("click", function(e) {
     e.preventDefault();
     addMoreCYOCards();
   });
 
+  // Make the plane fly!
   $(".fa-plane").on("click", function() {
     $(this).toggleClass("fly");
   });
