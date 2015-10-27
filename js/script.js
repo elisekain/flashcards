@@ -18,6 +18,15 @@ $(document).ready(function() {
     $(".count").text(currentQuestions.length);
   }
 
+  var finishMsg = function() {
+    if (lastQuestionIndex === -1) {
+      $("#front_side").append("<p class='finishMsg'>You've completed this flashcard stack!<br> Press 'R' to reset</p>");
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   // Hide Back Side of Card; Show Front Side
   var resetCardSide = function() {
     $("#back_side").addClass("hide");
@@ -30,19 +39,21 @@ $(document).ready(function() {
     clearPrevCard();
     resetCardSide();
 
-    // Append text to front and back sides.
-    currentQuestions[questionIndex].forEach(function(e, i) {
-      if (i === 0) {
-        $("#front_side").append("<p>" + currentQuestions[questionIndex][i] + "</p>");
-      } else {
-        $("#back_side").append("<p>" + currentQuestions[questionIndex][i] + "</p>");
-      }
+    if (!finishMsg()) {
+      // Append text to front and back sides.
+      currentQuestions[questionIndex].forEach(function(e, i) {
+        if (i === 0) {
+          $("#front_side").append("<p>" + currentQuestions[questionIndex][i] + "</p>");
+        } else {
+          $("#back_side").append("<p>" + currentQuestions[questionIndex][i] + "</p>");
+        }
 
-      // Reduce font size if more than 2 items on back
-      if (i > 2) {
-        $("#back_side").css("font-size", "1rem");
-      }
-    })
+        // Reduce font size if more than 2 items on back
+        if (i > 2) {
+          $("#back_side").css("font-size", "1rem");
+        }
+      })
+    }
   }
 
   // Remove Question if "Mark Complete" Box is checked
@@ -77,6 +88,19 @@ $(document).ready(function() {
     setQuestions();
   }
 
+  // Randomize Cards
+  var randomize = function() {
+    var randomNum = Math.floor(Math.random() * currentQuestions.length);
+    return randomNum;
+  }
+
+  // Randomize / Mixup Cards Cards
+  var mixupCards = function() {
+    markComplete();
+    questionIndex = randomize();
+    setQuestions();
+  }
+
   // Flip Flashcard
   var flip = function() {
     $("#back_side").toggleClass("hide");
@@ -102,6 +126,7 @@ $(document).ready(function() {
   $("#flip").on("click", flip);
   $("#next").on("click", next);
   $("#prev").on("click", prev);
+  $("#random").on("click", mixupCards);
   $("#reset").on("click", resetFlashcards);
 
   //Switch to Topic 1
