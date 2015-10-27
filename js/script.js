@@ -215,6 +215,5 @@ $(document).ready(function() {
 
 });
 
-// Global variables aren't being recognized within an object (flashcards)
-// Event Listeners only work on document body. Still want to prevent from activating while in inputs...
+// Remaining global variables aren't being recognized within an object (flashcards)
 // Put event listeners in object?
