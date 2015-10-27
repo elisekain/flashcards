@@ -141,15 +141,15 @@ $(document).ready(function() {
 
   // Show CYO Div
   $(".create_flashcards").on("click", function() {
-    addMoreCYOCards();
+    cyo.addMoreCYOCards();
     $("#cyo").slideDown().toggleClass("hide");
   });
 
   // Submit & Create CYO Cards
   $("#cyo_submit").on("click", function(e) {
     e.preventDefault();
-    createYourOwn(); // See cyo.js for this function
-    selectTopic(flashcards_cyo, "#019875");
+    cyo.createYourOwn(); // See cyo.js for this function
+    selectTopic(cyo.flashcards_cyo, "#019875");
     $(window).scrollTo($("h1"), {
       duration: "2s",
       easing: "swing"
@@ -159,7 +159,7 @@ $(document).ready(function() {
   // Add more CYO card inputs
   $(".addMore").on("click", function(e) {
     e.preventDefault();
-    addMoreCYOCards();
+    cyo.addMoreCYOCards();
   });
 
   // Make the plane fly!
