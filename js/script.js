@@ -2,26 +2,28 @@
 $(document).ready(function() {
   var userSelectedQuestions = flashcards1.questions.slice(0);
   var currentQuestions = userSelectedQuestions.slice(0);
-  var questionIndex = 0;
-  var lastQuestionIndex = currentQuestions.length - 1;
 
   var flashcard = {
+    self: this,
+    questionIndex: 0,
+    lastQuestionIndex: currentQuestions.length - 1,
+
     // Set Up Question On Flashcard
     setQuestions: function() {
-      flashcard.updateCardsLeft();
-      flashcard.clearPrevCard();
-      flashcard.resetCardSide();
-      flashcard.addText();
+      this.updateCardsLeft();
+      this.clearPrevCard();
+      this.resetCardSide();
+      this.addText();
     },
 
+    // Update Cards Left in Stack
     updateCardsLeft: function() {
-      // Update Cards Left in Stack
-      lastQuestionIndex = currentQuestions.length - 1;
+      this.lastQuestionIndex = currentQuestions.length - 1;
       $(".count").text(currentQuestions.length);
     },
 
+    // Clear Previous Card Text and Styling
     clearPrevCard: function() {
-      // Clear Previous Card Text and Styling
       $("#back_side").html("");
       $("#front_side").html("");
       $("#back_side").css("font-size", "1.5rem");
@@ -33,14 +35,14 @@ $(document).ready(function() {
       $("#front_side").removeClass("hide");
     },
 
+    // Append text to front and back sides.
     addText: function() {
       if (!flashcard.finishMsg()) {
-        // Append text to front and back sides.
-        currentQuestions[questionIndex].forEach(function(e, i) {
+        currentQuestions[flashcard.questionIndex].forEach(function(e, i) {
           if (i === 0) {
-            $("#front_side").append("<p>" + currentQuestions[questionIndex][i] + "</p>");
+            $("#front_side").append("<p>" + currentQuestions[flashcard.questionIndex][i] + "</p>");
           } else {
-            $("#back_side").append("<p>" + currentQuestions[questionIndex][i] + "</p>");
+            $("#back_side").append("<p>" + currentQuestions[flashcard.questionIndex][i] + "</p>");
           }
 
           // Reduce font size if more than 2 items on back
@@ -51,22 +53,15 @@ $(document).ready(function() {
       }
     },
 
+    // Give user a message if they've emptied the stack
     finishMsg: function() {
-      if (lastQuestionIndex === -1) {
+      if (flashcard.lastQuestionIndex === -1) {
         $("#front_side").append("<p class='finishMsg'>You've completed this flashcard stack!<br> Press 'R' to reset</p>");
         return true;
       } else {
         return false;
       }
     }
-  }
-
-
-  var selectTopic = function(topicName, topBorderColor) {
-    flashcard.userSelectedQuestions = topicName.questions.slice(0);
-    $(".topic").text(topicName.topic);
-    $("#flashcard").css("border-top-color", topBorderColor);
-    controls.resetFlashcards();
   }
 
   var controls = {
@@ -80,42 +75,36 @@ $(document).ready(function() {
     // Reset
     resetFlashcards: function() {
       currentQuestions = userSelectedQuestions.slice(0);
-      questionIndex = 0;
-      lastQuestionIndex = currentQuestions.length - 1;
+      flashcard.questionIndex = 0;
+      flashcard.lastQuestionIndex = currentQuestions.length - 1;
       flashcard.setQuestions();
     },
 
     // Randomize Cards
-    randomize: function() {
-      var randomNum = Math.floor(Math.random() * currentQuestions.length);
-      return randomNum;
-    },
-
-    // Randomize / Mixup Cards Cards
-    mixupCards: function() {
-      controls.markComplete();
-      questionIndex = controls.randomize();
+    randomCard: function() {
+      this.markComplete();
+      flashcard.questionIndex = Math.floor(Math.random() * currentQuestions.length);
       flashcard.setQuestions();
     },
 
     // Go to Previous Flashcard
     prev: function() {
-      controls.markComplete();
-      if (questionIndex === 0) {
-        questionIndex = lastQuestionIndex;
+      this.markComplete();
+      if (flashcard.questionIndex === 0) {
+        flashcard.questionIndex = flashcard.lastQuestionIndex;
       } else {
-        questionIndex--;
+        flashcard.questionIndex--;
       }
       flashcard.setQuestions();
     },
 
     // Go to Next Flashcard
-    next: function() {
-      if (!controls.markComplete()) {
-        if (questionIndex === lastQuestionIndex) {
-          questionIndex = 0;
+    nextCard: function() {
+      if (!this.markComplete()) {
+        if (flashcard.questionIndex === flashcard.lastQuestionIndex) {
+          flashcard.questionIndex = 0;
         } else {
-          questionIndex++;
+          flashcard.questionIndex++;
         }
       }
       flashcard.setQuestions();
@@ -124,28 +113,36 @@ $(document).ready(function() {
     // Remove Question if "Mark Complete" Box is checked
     markComplete: function() {
       if ($("input:checked").length) {
-        currentQuestions.splice(questionIndex, 1);
+        currentQuestions.splice(flashcard.questionIndex, 1);
         $("#mark_complete").prop("checked", false);
         return true;
       }
+    },
+
+    // Select New Topic
+    selectTopic: function(topicName, topBorderColor) {
+      userSelectedQuestions = topicName.questions.slice(0);
+      $(".topic").text(topicName.topic);
+      $("#flashcard").css("border-top-color", topBorderColor);
+      this.resetFlashcards();
     }
   }
 
   //Event Listeners
   $("#flip").on("click", controls.flip);
-  $("#next").on("click", controls.next);
+  $("#next").on("click", controls.nextCard);
   $("#prev").on("click", controls.prev);
-  $("#random").on("click", controls.mixupCards);
+  $("#random").on("click", controls.randomCard);
   $("#reset").on("click", controls.resetFlashcards);
 
   //Switch to Topic 1
   $(".topic1").on("click", function() {
-    selectTopic(flashcards1, "#F64747");
+    controls.selectTopic(flashcards1, "#F64747");
   });
 
   //Switch to Topic 2
   $(".topic2").on("click", function() {
-    selectTopic(flashcards2, "#F39C12");
+    controls.selectTopic(flashcards2, "#F39C12");
   });
 
   // Show CYO Div
@@ -158,7 +155,7 @@ $(document).ready(function() {
   $("#cyo_submit").on("click", function(e) {
     e.preventDefault();
     cyo.createYourOwn(); // See cyo.js for this function
-    selectTopic(cyo.flashcards_cyo, "#019875");
+    controls.selectTopic(cyo.flashcards_cyo, "#019875");
     $(window).scrollTo($("h1"), {
       duration: "2s",
       easing: "swing"
@@ -186,30 +183,30 @@ $(document).ready(function() {
   //Keyboard Shortcuts
   $("body").keypress(function(e) {
     // 120 is "X"
-    if (e.which == 120 && e.target == document.body) {
+    if (e.which == 120 && e.target != document.querySelector("input[type=text]")) {
       $("#mark_complete").prop("checked", true);
     // 122 is "Z"
-    } else if (e.which == 122 && e.target == document.body) {
+    } else if (e.which == 122 && e.target != document.querySelector("input[type=text]")) {
       $("#mark_complete").prop("checked", false);
     }
   });
 
   $("body").keyup(function(e) {
     // 70 is "F""
-    if (e.which == 70 && e.target == document.body) {
+    if (e.which == 70 && e.target != document.querySelector("input[type=text]")) {
       controls.flip();
     // 37 is left arrow
-    } else if (e.which == 37 && e.target == document.body) {
+    } else if (e.which == 37 && e.target != document.querySelector("input[type=text]")) {
       controls.prev();
     // 39 is right arrow
-    } else if (e.which == 39 && e.target == document.body) {
-      controls.next();
+    } else if (e.which == 39 && e.target != document.querySelector("input[type=text]")) {
+      controls.nextCard();
     // 82 is "R"
-    } else if (e.which == 82 && e.target == document.body) {
+    } else if (e.which == 82 && e.target != document.querySelector("input[type=text]")) {
       controls.resetFlashcards();
     // 81 is "Q"
-    } else if (e.which == 81 && e.target == document.body) {
-      controls.mixupCards();
+    } else if (e.which == 81 && e.target != document.querySelector("input[type=text]")) {
+      controls.randomCard();
     }
   });
 
@@ -218,5 +215,6 @@ $(document).ready(function() {
 
 });
 
-// Create flashcard object to contain functions.
+// Global variables aren't being recognized within an object (flashcards)
 // Event Listeners only work on document body. Still want to prevent from activating while in inputs...
+// Put event listeners in object?
