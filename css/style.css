@@ -31,7 +31,7 @@ h1 {
   animation: fly 5s ease-in-out 1;
 }
 
-/* Buttons */
+/* Buttons & Controls */
 button {
   background-color: #2574A9;
   width: 105px;
@@ -130,13 +130,8 @@ i {
 #switch_topic {
   width: 50%;
   margin: 0 auto;
-  color: #fff;
   position: relative;
   height: 160px;
-}
-
-#switch_topic h3 {
-  color: #2574A9;
 }
 
 .topic1, .topic2, .create_flashcards {
@@ -147,6 +142,7 @@ i {
   margin: 0 1%;
   padding: 1%;
   background-color: #6C7A89;
+  color: #fff;
   border-radius: 3px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -190,12 +186,9 @@ i {
   width: 50%;
 }
 
-#keyboard_shortcuts ul {
+#keyboard_shortcuts li {
   list-style: none;
   text-align: left;
-}
-
-#keyboard_shortcuts li {
   display: inline-block;
   width: 48%;
   padding: 0.5%;
@@ -215,6 +208,14 @@ i {
 }
 
 /* Media Queries */
+@media screen and (max-width: 575px) {
+    #cyo label, #cyo input[type="text"] {
+      display: block;
+      margin: 0 auto 2%;
+    }
+}
+
+
 @media screen and (max-width: 660px) {
 
   #flashcard {
@@ -255,7 +256,6 @@ i {
   i::before {
     display: none;
   }
-
 }
 
 @media screen and (max-width: 1000px) {
