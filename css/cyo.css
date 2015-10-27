@@ -25,22 +25,32 @@ input {
   padding-right: 2%;
 }
 
-#cyo_submit {
-  background-color: #fff;
-  border: none;
-  width: 175px;
-  border-radius: 3px;
-  padding: 2%;
-  margin-top: 3%;
-}
-
-.addMore {
-  background-color: #6C7A89;
-  border: 2px solid #fff;
+#cyo_submit, .addMore {
   width: 175px;
   margin: 3%;
   padding: 2%;
   border-radius: 3px;
+}
+
+#cyo_submit {
+  background-color: #fff;
+  border: 2px solid #fff;
+  transition: color 0.3s linear;
+  transition: border 0.3s linear;
+}
+
+.addMore {
+  border: 2px solid #fff;
+  transition: background-color 0.3s linear;
+}
+
+.addMore:hover {
+  background-color: #56616c;
+}
+
+#cyo_submit:hover {
+  color: #56616c;
+  border: 2px solid #56616c;
 }
 
 legend {

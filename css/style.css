@@ -47,7 +47,7 @@ button:focus {
   outline: none;
 }
 
-#reset {
+#reset, .addMore {
   background-color: #6C7A89;
 }
 
@@ -150,7 +150,7 @@ i {
   border-radius: 3px;
   overflow: hidden;
   text-overflow: ellipsis;
-  transition: background-color 0.5s ease-in;
+  transition: background-color 0.3s ease-in;
 }
 
 .topic1 {

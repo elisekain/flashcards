@@ -117,6 +117,10 @@ $(document).ready(function() {
     e.preventDefault();
     createYourOwn(); // See cyo.js for this function
     selectTopic(flashcards_cyo, "#019875");
+    $(window).scrollTo($("h1"), {
+      duration: "2s",
+      easing: "swing"
+    });
   });
 
   $(".addMore").on("click", function(e) {
@@ -131,27 +135,26 @@ $(document).ready(function() {
   //Keyboard Shortcuts
   $("body").keypress(function(e) {
     // 120 is "X"
-    if (e.which == 120) {
+    if (e.which == 120 && e.target == document.body) {
       $("#mark_complete").prop("checked", true);
     // 122 is "Z"
-    } else if (e.which == 122) {
+    } else if (e.which == 122 && e.target == document.body) {
       $("#mark_complete").prop("checked", false);
     }
   });
 
   $("body").keyup(function(e) {
-    // 32 is spacebar
-    if (e.which == 32) {
-      e.preventDefault();
+    // 70 is "F""
+    if (e.which == 70 && e.target == document.body) {
       flip();
     // 37 is left arrow
-    } else if (e.which == 37) {
+    } else if (e.which == 37 && e.target == document.body) {
       prev();
     // 39 is right arrow
-    } else if (e.which == 39) {
+    } else if (e.which == 39 && e.target == document.body) {
       next();
     // 82 is "R"
-    } else if (e.which == 82) {
+    } else if (e.which == 82 && e.target == document.body) {
       resetFlashcards();
     }
   });
@@ -161,7 +164,3 @@ $(document).ready(function() {
 });
 
 // Create flashcard object to contain functions.
-// Spacebar is still a problem...but only sometimes
-// Make function for select topics
-// If cyo cards are empty, don't create the array
-// Add option for more cards
