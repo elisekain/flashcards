@@ -4,21 +4,23 @@ $(document).ready(function() {
   var currentQuestions = userSelectedQuestions.slice(0);
 
   var flashcard = {
-    self: this,
     questionIndex: 0,
     lastQuestionIndex: currentQuestions.length - 1,
 
     // Set Up Question On Flashcard
     setQuestions: function() {
+      if (!$(".finishMsg").length) {
       this.clearPrevCard();
       this.resetCardSide();
       this.addText();
+      }
     },
 
     // Update Cards Left in Stack
     updateCardsLeft: function() {
       this.lastQuestionIndex = currentQuestions.length - 1;
       $(".count").text(currentQuestions.length);
+      flashcard.finishMsg();
     },
 
     // Clear Previous Card Text and Styling
@@ -36,25 +38,24 @@ $(document).ready(function() {
 
     // Append text to front and back sides.
     addText: function() {
-      if (!flashcard.finishMsg()) {
-        currentQuestions[flashcard.questionIndex].forEach(function(e, i) {
-          if (i === 0) {
-            $("#front_side").append("<p>" + currentQuestions[flashcard.questionIndex][i] + "</p>");
-          } else {
-            $("#back_side").append("<p>" + currentQuestions[flashcard.questionIndex][i] + "</p>");
-          }
+      currentQuestions[flashcard.questionIndex].forEach(function(e, i) {
+        if (i === 0) {
+          $("#front_side").append("<p>" + currentQuestions[flashcard.questionIndex][i] + "</p>");
+        } else {
+          $("#back_side").append("<p>" + currentQuestions[flashcard.questionIndex][i] + "</p>");
+        }
 
-          // Reduce font size if more than 2 items on back
-          if (i > 2) {
-            $("#back_side").css("font-size", "1rem");
-          }
-        });
-      }
+        // Reduce font size if more than 2 items on back
+        if (i > 2) {
+          $("#back_side").css("font-size", "1rem");
+        }
+      });
     },
 
     // Give user a message if they've emptied the stack
     finishMsg: function() {
       if (flashcard.lastQuestionIndex === -1) {
+        flashcard.clearPrevCard();
         $("#front_side").append("<p class='finishMsg'>You've completed this flashcard stack!<br> Press 'R' to reset</p>");
         return true;
       } else {
