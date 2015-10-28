@@ -3,7 +3,9 @@
 Alpha - Zulu is a flashcard application to help aspiring private pilots memorize important information like the phonetic alphabet and emergency procedure checklists. It allows the user to:
 - flip to the opposite side of the card
 - cycle forwards and backwards through the stack
+- get a random card from the stack
 - mark a flashcard complete and remove it from the stack.
+- refresh the flashcard stack
 
 The user can also create a customized stack of up to 50 flashcards.   
 
@@ -38,6 +40,8 @@ See: http://elisekain.github.io/flashcards/
 
 See also: https://trello.com/b/582L7t0G/flashcards
 
-### Approach Taken
-
 ### Unsolved Problems
+- I would like to find a way to sustain user-created flashcard stacks.
+- I would like to implement a "percentage of flashcard stack completed" feature.
+- I would like to add an optional timer feature.
+- The keyboard shortcuts work as expected most of the time, but there are still moments where they do not work as expected.

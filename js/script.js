@@ -104,8 +104,8 @@ $(document).ready(function() {
     // Go to Next Flashcard
     nextCard: function() {
         if (flashcard.questionIndex >= flashcard.lastQuestionIndex) {
-          flashcard.questionIndex = 0;
           controls.markComplete();
+          flashcard.questionIndex = 0;
         } else if (!controls.markComplete()){
           flashcard.questionIndex++;
         }
