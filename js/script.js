@@ -10,7 +10,6 @@ $(document).ready(function() {
 
     // Set Up Question On Flashcard
     setQuestions: function() {
-      this.updateCardsLeft();
       this.clearPrevCard();
       this.resetCardSide();
       this.addText();
@@ -46,10 +45,8 @@ $(document).ready(function() {
           }
 
           // Reduce font size if more than 2 items on back
-          if (i > 4) {
-            $("#back_side p").css("font-size", "0.8rem")
-          } else if (i > 1) {
-            $("#back_side p").css("font-size", "1rem");
+          if (i > 2) {
+            $("#back_side").css("font-size", "1rem");
           }
         });
       }
@@ -78,7 +75,7 @@ $(document).ready(function() {
     resetFlashcards: function() {
       currentQuestions = userSelectedQuestions.slice(0);
       flashcard.questionIndex = 0;
-      flashcard.lastQuestionIndex = currentQuestions.length - 1;
+      flashcard.updateCardsLeft();
       flashcard.setQuestions();
     },
 
@@ -102,13 +99,11 @@ $(document).ready(function() {
 
     // Go to Next Flashcard
     nextCard: function() {
-      if (!controls.markComplete()) {
-        if (flashcard.questionIndex === flashcard.lastQuestionIndex) {
+        if (flashcard.questionIndex >= flashcard.lastQuestionIndex) {
           flashcard.questionIndex = 0;
-        } else {
+        } else if (!controls.markComplete()){
           flashcard.questionIndex++;
         }
-      }
       flashcard.setQuestions();
     },
 
@@ -117,6 +112,7 @@ $(document).ready(function() {
       if ($("input:checked").length) {
         currentQuestions.splice(flashcard.questionIndex, 1);
         $("#mark_complete").prop("checked", false);
+        flashcard.updateCardsLeft();
         return true;
       }
     },
