@@ -82,14 +82,14 @@ $(document).ready(function() {
 
     // Randomize Cards
     randomCard: function() {
-      this.markComplete();
+      controls.markComplete();
       flashcard.questionIndex = Math.floor(Math.random() * currentQuestions.length);
       flashcard.setQuestions();
     },
 
     // Go to Previous Flashcard
     prev: function() {
-      this.markComplete();
+      controls.markComplete();
       if (flashcard.questionIndex === 0) {
         flashcard.questionIndex = flashcard.lastQuestionIndex;
       } else {
@@ -100,7 +100,7 @@ $(document).ready(function() {
 
     // Go to Next Flashcard
     nextCard: function() {
-      if (!this.markComplete()) {
+      if (!controls.markComplete()) {
         if (flashcard.questionIndex === flashcard.lastQuestionIndex) {
           flashcard.questionIndex = 0;
         } else {
