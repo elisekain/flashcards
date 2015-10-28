@@ -152,6 +152,10 @@ $(document).ready(function() {
   $(".create_flashcards").on("click", function() {
     cyo.addMoreCYOCards();
     $("#cyo").slideDown().toggleClass("hide");
+    $(window).scrollTo($("#cyo"), {
+      duration: "2s",
+      easing: "swing"
+    });
   });
 
   // Submit & Create CYO Cards

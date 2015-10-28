@@ -10,6 +10,7 @@
 
 /* Main */
 body {
+  /* Background pattern from subtlepatterns.com */
   background-image: url("../img/squared_metal.png");
   font-family: 'Roboto Slab', serif;
   color: #2574A9;
