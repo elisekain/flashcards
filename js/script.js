@@ -76,6 +76,7 @@ $(document).ready(function() {
 
     // Reset
     resetFlashcards: function() {
+      flashcard.clearPrevCard();
       currentQuestions = userSelectedQuestions.slice(0);
       flashcard.questionIndex = 0;
       flashcard.updateCardsLeft();
@@ -104,6 +105,7 @@ $(document).ready(function() {
     nextCard: function() {
         if (flashcard.questionIndex >= flashcard.lastQuestionIndex) {
           flashcard.questionIndex = 0;
+          controls.markComplete();
         } else if (!controls.markComplete()){
           flashcard.questionIndex++;
         }
