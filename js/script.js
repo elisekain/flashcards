@@ -45,9 +45,11 @@ $(document).ready(function() {
           $("#back_side").append("<p>" + currentQuestions[flashcard.questionIndex][i] + "</p>");
         }
 
-        // Reduce font size if more than 2 items on back
-        if (i > 2) {
-          $("#back_side").css("font-size", "1rem");
+        // Reduce font size if more than 3 items on back
+        if (i > 3) {
+          $("#back_side p").css("font-size", "0.8rem");
+        } else if (i > 2) {
+          $("#back_side p").css("font-size", "1rem");
         }
       });
     },

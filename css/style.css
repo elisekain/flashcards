@@ -115,7 +115,7 @@ label {
 }
 
 #front_side, #back_side {
-  font-size: 3rem;
+  /*font-size: 3rem;*/
   width: 87%;
   position: absolute;
   margin-top: 1%;
