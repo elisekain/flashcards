@@ -123,11 +123,11 @@ label {
 
 #back_side {
   color: #6C7A89;
-  font-size:1.5rem;
 }
 
 #front_side p, #back_side p {
   margin-top: 1%;
+  font-size: 2rem;
 }
 
 i {

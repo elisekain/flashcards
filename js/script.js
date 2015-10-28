@@ -46,8 +46,10 @@ $(document).ready(function() {
           }
 
           // Reduce font size if more than 2 items on back
-          if (i > 2) {
-            $("#back_side").css("font-size", "1rem");
+          if (i > 4) {
+            $("#back_side p").css("font-size", "0.8rem")
+          } else if (i > 1) {
+            $("#back_side p").css("font-size", "1rem");
           }
         });
       }
