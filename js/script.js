@@ -1,7 +1,7 @@
 "use strict"
 $(document).ready(function() {
-  var userSelectedQuestions = flashcards1.questions.slice(0);
-  var currentQuestions = userSelectedQuestions.slice(0);
+  var userSelectedQuestions = flashcards1.questions.slice(0); // Use slice so the original array can remain intact.
+  var currentQuestions = userSelectedQuestions.slice(0); // Use slice so the userSelectedQuestions array can be used as the refresh stack
 
   var flashcard = {
     questionIndex: 0,
@@ -131,96 +131,104 @@ $(document).ready(function() {
     }
   }
 
-  //Event Listeners
-  $("#flip").on("click", controls.flip);
-  $("#next").on("click", controls.nextCard);
-  $("#prev").on("click", controls.prev);
-  $("#random").on("click", controls.randomCard);
-  $("#reset").on("click", controls.resetFlashcards);
 
-  //Switch to Topic 1
-  $(".topic1").on("click", function() {
-    controls.selectTopic(flashcards1, "#F64747");
-  });
+  var events = {
 
-  //Switch to Topic 2
-  $(".topic2").on("click", function() {
-    controls.selectTopic(flashcards2, "#F39C12");
-  });
+    plane: $(".fa-plane"),
 
-  // Show CYO Div
-  $(".create_flashcards").on("click", function() {
-    cyo.addMoreCYOCards();
-    $("#cyo").slideDown().toggleClass("hide");
-    $(window).scrollTo($("#cyo"), {
-      duration: "2s",
-      easing: "swing"
-    });
-  });
+    listen: function() {
 
-  // Submit & Create CYO Cards
-  $("#cyo_submit").on("click", function(e) {
-    e.preventDefault();
-    cyo.createYourOwn(); // See cyo.js for this function
-    controls.selectTopic(cyo.flashcards_cyo, "#019875");
-    $(window).scrollTo($("h1"), {
-      duration: "2s",
-      easing: "swing"
-    });
-  });
+      //Event Listeners
+      $("#flip").on("click", controls.flip);
+      $("#next").on("click", controls.nextCard);
+      $("#prev").on("click", controls.prev);
+      $("#random").on("click", controls.randomCard);
+      $("#reset").on("click", controls.resetFlashcards);
 
-  // Add more CYO card inputs
-  $(".addMore").on("click", function(e) {
-    e.preventDefault();
-    cyo.addMoreCYOCards();
-  });
+      //Switch to Topic 1
+      $(".topic1").on("click", function() {
+        controls.selectTopic(flashcards1, "#F64747");
+      });
 
-  // Make the plane fly!
-  var plane = $(".fa-plane");
+      //Switch to Topic 2
+      $(".topic2").on("click", function() {
+        controls.selectTopic(flashcards2, "#F39C12");
+      });
 
-  plane.on("click", function(e) {
-    e.preventDefault;
-    plane.addClass("fly");
-  });
+      // Show CYO Div
+      $(".create_flashcards").on("click", function() {
+        cyo.addMoreCYOCards();
+        $("#cyo").slideDown().toggleClass("hide");
+        $(window).scrollTo($("#cyo"), {
+          duration: "2s",
+          easing: "swing"
+        });
+      });
 
-  plane.on("mouseover", function(e) {
-    plane.removeClass("fly");
-  });
+      // Submit & Create CYO Cards
+      $("#cyo_submit").on("click", function(e) {
+        e.preventDefault();
+        cyo.createYourOwn(); // See cyo.js for this function
+        controls.selectTopic(cyo.flashcards_cyo, "#019875");
+        $(window).scrollTo($("h1"), {
+          duration: "2s",
+          easing: "swing"
+        });
+      });
 
-  //Keyboard Shortcuts
-  $("body").keypress(function(e) {
-    // 120 is "X"
-    if (e.which == 120 && e.target != document.querySelector("input[type=text]")) {
-      $("#mark_complete").prop("checked", true);
-    // 122 is "Z"
-    } else if (e.which == 122 && e.target != document.querySelector("input[type=text]")) {
-      $("#mark_complete").prop("checked", false);
+      // Add more CYO card inputs
+      $(".addMore").on("click", function(e) {
+        e.preventDefault();
+        cyo.addMoreCYOCards();
+      });
+
+      // Make the plane fly!
+      this.plane.on("click", function(e) {
+        e.preventDefault;
+        plane.addClass("fly");
+      });
+
+      this.plane.on("mouseover", function(e) {
+        plane.removeClass("fly");
+      });
+
+      //Keyboard Shortcuts
+      $("body").keypress(function(e) {
+        if (e.target != document.querySelector("input[type=text]")) {
+          // 120 is "X"
+          if (e.which == 120) {
+            $("#mark_complete").prop("checked", true);
+          // 122 is "Z"
+          } else if (e.which == 122) {
+            $("#mark_complete").prop("checked", false);
+          }
+        }
+      });
+
+      $("body").keyup(function(e) {
+        if (e.target != document.querySelector("input[type=text]")) {
+          // 70 is "F""
+          if (e.which == 70 ) {
+            controls.flip();
+          // 37 is left arrow
+          } else if (e.which == 37) {
+            controls.prev();
+          // 39 is right arrow
+          } else if (e.which == 39) {
+            controls.nextCard();
+          // 82 is "R"
+          } else if (e.which == 82) {
+            controls.resetFlashcards();
+          // 81 is "Q"
+          } else if (e.which == 81) {
+            controls.randomCard();
+          }
+        }
+      });
     }
-  });
-
-  $("body").keyup(function(e) {
-    // 70 is "F""
-    if (e.which == 70 && e.target != document.querySelector("input[type=text]")) {
-      controls.flip();
-    // 37 is left arrow
-    } else if (e.which == 37 && e.target != document.querySelector("input[type=text]")) {
-      controls.prev();
-    // 39 is right arrow
-    } else if (e.which == 39 && e.target != document.querySelector("input[type=text]")) {
-      controls.nextCard();
-    // 82 is "R"
-    } else if (e.which == 82 && e.target != document.querySelector("input[type=text]")) {
-      controls.resetFlashcards();
-    // 81 is "Q"
-    } else if (e.which == 81 && e.target != document.querySelector("input[type=text]")) {
-      controls.randomCard();
-    }
-  });
+  }
 
   //Set Up Flashcards
   flashcard.setQuestions();
-
+  events.listen();
 });
-
-// Remaining global variables aren't being recognized within an object (flashcards)
-// Put event listeners in object?

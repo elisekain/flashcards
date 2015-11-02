@@ -15,12 +15,10 @@ See: http://elisekain.github.io/flashcards/
 
 - HTML
 - CSS
+- CSS Animations &amp; Transitions
 - JavaScript
 - jQuery
 - Git / GitHub
-
-### Other Resources Used
-
 - Font Awesome
 - normalize.css
 - jQuery.scrollTo plugin (https://github.com/flesler/jquery.scrollTo)
