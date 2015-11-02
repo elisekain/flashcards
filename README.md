@@ -42,4 +42,3 @@ See also: https://trello.com/b/582L7t0G/flashcards
 - I would like to find a way to sustain user-created flashcard stacks.
 - I would like to implement a "percentage of flashcard stack completed" feature.
 - I would like to add an optional timer feature.
-- The keyboard shortcuts work as expected most of the time, but there are still moments where they do not work as expected.
