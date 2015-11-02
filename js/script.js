@@ -1,7 +1,7 @@
 "use strict"
 $(document).ready(function() {
-  var userSelectedQuestions = flashcards1.questions.slice(0);
-  var currentQuestions = userSelectedQuestions.slice(0);
+  var userSelectedQuestions = flashcards1.questions.slice(0); // jsm: slice so that you can manipulate this array while leaving the other intact?
+  var currentQuestions = userSelectedQuestions.slice(0); // jsm: not sure why these would be inaccessable from within an object if you use this.currentQuestions in a methiod of that object
 
   var flashcard = {
     questionIndex: 0,
@@ -10,8 +10,8 @@ $(document).ready(function() {
     // Set Up Question On Flashcard
     setQuestions: function() {
       if (!$(".finishMsg").length) {
-      this.clearPrevCard();
-      this.resetCardSide();
+      this.clearPrevCard(); // jsm: Perfect use of this, when refering to another key-value pair in the same object, we access using this.<target-key>
+      this.resetCardSide(); // jsm: really like these helper method calls
       this.addText();
       }
     },
@@ -32,7 +32,7 @@ $(document).ready(function() {
 
     // Hide Back Side of Card; Show Front Side
     resetCardSide: function() {
-      $("#back_side").addClass("hide");
+      $("#back_side").addClass("hide"); //jsm: can more easily use jquery's hide method to accomplish the same without needing to define a .hide rule
       $("#front_side").removeClass("hide");
     },
 
@@ -45,7 +45,7 @@ $(document).ready(function() {
           $("#back_side").append("<p>" + currentQuestions[flashcard.questionIndex][i] + "</p>");
         }
 
-        // Reduce font size if more than 3 items on back
+        // Reduce font size if more than 3 items on back //jsm: nice!
         if (i > 3) {
           $("#back_side p").css("font-size", "0.8rem");
         } else if (i > 2) {
@@ -131,7 +131,7 @@ $(document).ready(function() {
     }
   }
 
-  //Event Listeners
+  //Event Listeners //jsm: frequently we'll package these up into a .listen() method and call that at the beginning of the game
   $("#flip").on("click", controls.flip);
   $("#next").on("click", controls.nextCard);
   $("#prev").on("click", controls.prev);
@@ -151,8 +151,8 @@ $(document).ready(function() {
   // Show CYO Div
   $(".create_flashcards").on("click", function() {
     cyo.addMoreCYOCards();
-    $("#cyo").slideDown().toggleClass("hide");
-    $(window).scrollTo($("#cyo"), {
+    $("#cyo").slideDown().toggleClass("hide"); // jsm: very clever!
+    $(window).scrollTo($("#cyo"), { // jsm: really like this effect
       duration: "2s",
       easing: "swing"
     });
@@ -178,7 +178,7 @@ $(document).ready(function() {
   // Make the plane fly!
   var plane = $(".fa-plane");
 
-  plane.on("click", function(e) {
+  plane.on("click", function(e) { // jsm: best easter-egg of project 1!
     e.preventDefault;
     plane.addClass("fly");
   });
@@ -187,10 +187,10 @@ $(document).ready(function() {
     plane.removeClass("fly");
   });
 
-  //Keyboard Shortcuts
+  //Keyboard Shortcuts // jsm: did you originally have all key controls listening with keypress or keyup?
   $("body").keypress(function(e) {
     // 120 is "X"
-    if (e.which == 120 && e.target != document.querySelector("input[type=text]")) {
+    if (e.which == 120 && e.target != document.querySelector("input[type=text]")) { // jsm: I think you can pull out the e.target != document.querySelector and have it as a single if statement where if it is met, you then check for keycodes
       $("#mark_complete").prop("checked", true);
     // 122 is "Z"
     } else if (e.which == 122 && e.target != document.querySelector("input[type=text]")) {
@@ -222,5 +222,5 @@ $(document).ready(function() {
 
 });
 
-// Remaining global variables aren't being recognized within an object (flashcards)
-// Put event listeners in object?
+// Remaining global variables aren't being recognized within an object (flashcards) // jsm: which ones in particular?
+// Put event listeners in object? // jsm: yeah! Frequently we do this with a .listen() method on that object that we can add all of our listeners in
