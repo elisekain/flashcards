@@ -132,9 +132,8 @@ $(document).ready(function() {
   }
 
 
+  var plane = $(".fa-plane");
   var events = {
-
-    plane: $(".fa-plane"),
 
     listen: function() {
 
@@ -183,12 +182,12 @@ $(document).ready(function() {
       });
 
       // Make the plane fly!
-      this.plane.on("click", function(e) {
+      plane.on("click", function(e) {
         e.preventDefault;
         plane.addClass("fly");
       });
 
-      this.plane.on("mouseover", function(e) {
+      plane.on("mouseover", function(e) {
         plane.removeClass("fly");
       });
 
