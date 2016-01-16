@@ -1,0 +1,35 @@
+/* Buttons & Controls */
+button {
+  background-color: #2574A9;
+  width: 105px;
+  color: #fff;
+  font-size: 0.9rem;
+  border: none;
+  padding: 1.5%;
+  margin: 0 0.5% 1.5% 0.5%;
+  border-radius: 5px;
+}
+
+button:focus {
+  outline: none;
+}
+
+#reset, .addMore {
+  background-color: #6C7A89;
+}
+
+#random {
+  background-color: #F64747;
+}
+
+#flip {
+  background-color: #019875;
+}
+
+#mark_complete {
+  margin-left: 6%;
+}
+
+label {
+  white-space: nowrap;
+}

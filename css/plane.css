@@ -13,3 +13,11 @@
 
     100% {}
 }
+
+.fa-plane {
+  transform: rotate(45deg);
+}
+
+.fly {
+  animation: fly 5s ease-in-out 1;
+}
