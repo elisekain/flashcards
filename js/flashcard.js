@@ -34,18 +34,6 @@ var flashcard = {
     $("#front_side").removeClass("hide");
   },
 
-  // Append text to front and back sides.
-  addText: function() {
-    currentQuestions[flashcard.questionIndex].forEach(function(e, i) {
-      if (i === 0) {
-        $("#front_side").append("<p>" + currentQuestions[flashcard.questionIndex][i] + "</p>");
-      } else {
-        $("#back_side").append("<p>" + currentQuestions[flashcard.questionIndex][i] + "</p>");
-      }
-      this.adjustFontSize(i);
-    });
-  },
-
   // Reduce font size if >= 3 items on back
   adjustFontSize: function(i) {
     if (i > 3) {
@@ -53,6 +41,19 @@ var flashcard = {
     } else if (i === 3) {
       $("#back_side p").css("font-size", "1rem");
     }
+  },
+
+  // Append text to front and back sides.
+  addText: function() {
+    var self = this;
+    currentQuestions[flashcard.questionIndex].forEach(function(e, i) {
+      if (i === 0) {
+        $("#front_side").append("<p>" + currentQuestions[flashcard.questionIndex][i] + "</p>");
+      } else {
+        $("#back_side").append("<p>" + currentQuestions[flashcard.questionIndex][i] + "</p>");
+      }
+      self.adjustFontSize(i);
+    });
   },
 
   // Give user a message if they've emptied the stack
