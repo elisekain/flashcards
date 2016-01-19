@@ -24,7 +24,7 @@ See: http://elisekain.github.io/flashcards/
 ### Installation Instructions
 
 - Plays in the browser.
-- No dependencies
+- No dependencies need to be installed ([Handlebars](http://handlebarsjs.com/) is included in this repo).
 
 ### User Stories
 
