@@ -6,6 +6,7 @@ var cyo = {
 
   // Get data to create CYO flashcard stack
   createYourOwn: function() {
+    var self = this;
     this.flashcards_cyo = {};
     this.flashcards_cyo.topic = $("input[name='cyo_topic']").val();
     this.flashcards_cyo.questions = [];
@@ -13,24 +14,25 @@ var cyo = {
     $(".card_entries").each(function(i) {
       var frontSide = $(".card_entries .front").eq(i).val();
       var backSide = $(".card_entries .back").eq(i).val();
-      this.addCustomCard(frontSide, backSide);
-    })
+      self.addCustomCard(frontSide, backSide);
+    });
   },
 
   addCustomCard: function(frontSide, backSide) {
     var cardContent = [];
     if (frontSide && backSide) {
-      thisCardContent.push(frontSide);
-      thisCardContent.push(backSide);
-      cyo.flashcards_cyo.questions.push(thisCardContent);
+      cardContent.push(frontSide);
+      cardContent.push(backSide);
+      cyo.flashcards_cyo.questions.push(cardContent);
     }
   },
 
   // Add more input fields for CYO
   addMoreCYOCards: function() {
     if (this.cardNumber < 50) {
+    var addCard = Handlebars.getTemplate("addCard");
       for (var i = 0; i < 5; i++) {
-        $(".cyo_cards").append(Handlebars.getTemplate("addCards"));
+        $(".cyo_cards").append(addCard({number: this.cardNumber}));
         this.cardNumber++;
       }
     }

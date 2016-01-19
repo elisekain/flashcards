@@ -1,4 +1,3 @@
-var plane = $(".fa-plane");
 var events = {
 
   listen: function() {
@@ -22,8 +21,12 @@ var events = {
 
     // Show CYO Div
     $(".create_flashcards").click(function() {
-      cyo.addMoreCYOCards();
-      $("#cyo").slideDown().toggleClass("hide");
+      // Only add 5 flashcards on first "create flashcards" click
+      if (cyo.cardNumber === 1) {
+        cyo.addMoreCYOCards();
+        $("#cyo").slideDown().toggleClass("hide");
+      }
+
       $(window).scrollTo($("#cyo"), {
         duration: "2s",
         easing: "swing"
@@ -48,13 +51,13 @@ var events = {
     });
 
     // Make the plane fly!
-    plane.click(function(e) {
+    $(".fa-plane").click(function(e) {
       e.preventDefault;
-      plane.addClass("fly");
+      $(".fa-plane").addClass("fly");
     });
 
-    plane.on("mouseover", function(e) {
-      plane.removeClass("fly");
+    $(".fa-plane").on("mouseover", function(e) {
+      $(".fa-plane").removeClass("fly");
     });
 
     //Keyboard Shortcuts
