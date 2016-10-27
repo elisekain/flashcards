@@ -1,0 +1,49 @@
+/* Switch Topic */
+#switch_topic {
+  width: 50%;
+  margin: 0 auto;
+  position: relative;
+  height: 160px;
+}
+
+.topic1, .topic2, .create_flashcards {
+  position: absolute;
+  display: inline-block;
+  width: 32.5%;
+  height: 100px;
+  margin: 0 1%;
+  padding: 1%;
+  background-color: #6C7A89;
+  color: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background-color 0.3s ease-in;
+}
+
+.topic1 {
+  left: 0;
+  border-top: solid 5px #F64747;
+}
+
+.topic1:hover {
+  background-color: #F64747;
+}
+
+.topic2 {
+  left: 33%;
+  border-top: solid 5px #F39C12;
+}
+
+.topic2:hover {
+  background-color: #F39C12;
+}
+
+.create_flashcards {
+  left: 66%;
+  border-top: solid 5px #019875;
+}
+
+.create_flashcards:hover {
+  background-color: #019875;
+}
