@@ -1,0 +1,27 @@
+/* Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto+Slab:400,700|Open+Sans:300,400);
+
+* {
+  box-sizing: border-box;
+}
+
+/* Main */
+body {
+  /* Background pattern from subtlepatterns.com */
+  background-image: url("../img/squared_metal.png");
+  font-family: 'Roboto Slab', serif;
+  color: #2574A9;
+  text-align: center;
+}
+
+/* Header */
+h1 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3.5rem;
+  margin: 10px auto;
+}
+
+/* Hide Class */
+.hide {
+  display: none;
+}

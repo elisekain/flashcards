@@ -1,0 +1,64 @@
+/* Media Queries */
+@media screen and (max-width: 575px) {
+    #cyo label, #cyo input[type="text"] {
+      display: block;
+      margin: 0 auto 2%;
+    }
+}
+
+
+@media screen and (max-width: 660px) {
+
+  #flashcard {
+    min-height: 500px;
+  }
+
+  #back_side {
+    margin-top: 20px;
+  }
+
+  .topic1, .topic2, .create_flashcards {
+  position: static;
+  width: 100%;
+  height: 70px;
+  margin: 0 auto;
+  }
+
+  #switch_topic {
+    height:275px;
+  }
+
+  #keyboard_shortcuts ul {
+    padding-left: 0;
+  }
+
+  #keyboard_shortcuts li {
+    width: 100%;
+    text-align: center;
+  }
+
+  button {
+    display: inline-block;
+    width: 25%;
+    padding: 2.5%;
+    margin: 0.5%;
+  }
+
+  i::before {
+    display: none;
+  }
+
+  #front_side .finishMsg {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #flashcard, #keyboard_shortcuts, #switch_topic, #cyo {
+    width: 85%;
+  }
+
+  button, #controls label {
+    font-size: 0.8rem;
+  }
+}
