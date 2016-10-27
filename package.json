@@ -1,0 +1,26 @@
+{
+  "name": "flashcards",
+  "version": "1.0.0",
+  "description": "A flashcard application to help aspiring private pilots memorize important information like the phonetic alphabet and emergency procedure checklists",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elisekain/flashcards.git"
+  },
+  "author": "Elise Kain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elisekain/flashcards/issues"
+  },
+  "homepage": "https://github.com/elisekain/flashcards#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "handlebars": "^4.0.5",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-router": "^3.0.0"
+  }
+}
