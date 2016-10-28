@@ -1,14 +1,20 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
 var browserSync = require('browser-sync').create();
 
 gulp.task('sass', function() {
     return gulp.src('src/scss/**/*.scss')
         .pipe(sass())
-        .pipe(gulp.dest('public/dist/css'))
-        .pipe(browserSync.reload({
-            stream: true
-        }))
+        .pipe(gulp.dest('public/dist/css'));
+});
+
+gulp.task('scripts', function() {
+    return gulp.src('src/js/**/*.js')
+        .pipe(concat('main.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('public/dist/js'));
 });
 
 gulp.task('browserSync', function() {
@@ -20,7 +26,7 @@ gulp.task('browserSync', function() {
     })
 });
 
-gulp.task('watch', ['browserSync', 'sass'], function() {
+gulp.task('watch', ['browserSync', 'scripts', 'sass'], function() {
     gulp.watch('src/scss/**/*.scss', ['sass']);
-    gulp.watch('src/js/**/*.js', browserSync.reload);
+    gulp.watch('src/js/**/*.js', ['scripts', browserSync.reload]);
 });

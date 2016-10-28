@@ -18,6 +18,7 @@
   "homepage": "https://github.com/elisekain/flashcards#readme",
   "dependencies": {
     "express": "^4.14.0",
+    "gulp-concat": "^2.6.0",
     "handlebars": "^4.0.5",
     "node-sass": "^3.10.1",
     "react": "^15.3.2",
@@ -27,6 +28,7 @@
   "devDependencies": {
     "browser-sync": "^2.17.5",
     "gulp": "^3.9.1",
-    "gulp-sass": "^2.3.2"
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0"
   }
 }
